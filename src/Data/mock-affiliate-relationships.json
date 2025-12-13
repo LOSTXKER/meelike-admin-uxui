@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "referredName": "นพดล มั่นคง",
+        "referredUserId": "user-10",
+        "registeredAt": "2024-10-15T10:00:00.000Z",
+        "totalConfirmed": 2500.00,
+        "totalPending": 500.00
+    },
+    {
+        "id": "2",
+        "referredName": "กมล สว่าง",
+        "referredUserId": "user-11",
+        "registeredAt": "2024-11-01T14:30:00.000Z",
+        "totalConfirmed": 1200.00,
+        "totalPending": 200.00
+    },
+    {
+        "id": "3",
+        "referredName": "วีระ แข็งแรง",
+        "referredUserId": "user-12",
+        "registeredAt": "2024-09-20T09:15:00.000Z",
+        "totalConfirmed": 4500.00,
+        "totalPending": 1000.00
+    },
+    {
+        "id": "4",
+        "referredName": "สมศักดิ์ เจริญ",
+        "referredUserId": "user-13",
+        "registeredAt": "2024-12-01T16:45:00.000Z",
+        "totalConfirmed": 750.00,
+        "totalPending": 150.00
+    }
+]

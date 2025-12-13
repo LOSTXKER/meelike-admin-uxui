@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "no": 1,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Onnut Hospital 2",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "onnut.hospital@mail.com",
+        "deployedBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 2,
+        "no": 2,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Bangkok Hospital",
+        "contact": "Ms. Nattaya",
+        "phone": "082-345-6789",
+        "email": "bangkok.hospital@mail.com",
+        "deployedBy": {
+            "name": "Jane Smith"
+        }
+    },
+    {
+        "id": 3,
+        "no": 3,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Onnut Hospital 1",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "onnut.hospital@mail.com",
+        "deployedBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 4,
+        "no": 4,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Songkhla Hospital",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "songkhla.hospital@mail.com",
+        "deployedBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 5,
+        "no": 5,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Phuket Hospital",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "phuket.hospital@mail.com",
+        "deployedBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 6,
+        "no": 6,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Chiangmai Medical Center",
+        "contact": "Ms. Supaporn",
+        "phone": "053-123-4567",
+        "email": "chiangmai.med@mail.com",
+        "deployedBy": {
+            "name": "Sarah Wilson"
+        }
+    },
+    {
+        "id": 7,
+        "no": 7,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Rama Hospital",
+        "contact": "Dr. Prasert",
+        "phone": "02-345-6789",
+        "email": "rama.hospital@mail.com",
+        "deployedBy": {
+            "name": "Mike Johnson"
+        }
+    },
+    {
+        "id": 8,
+        "no": 8,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Khon Kaen Hospital",
+        "contact": "Ms. Rattana",
+        "phone": "043-234-5678",
+        "email": "khonkaen.hospital@mail.com",
+        "deployedBy": {
+            "name": "Jane Smith"
+        }
+    },
+    {
+        "id": 9,
+        "no": 9,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Pattaya Memorial",
+        "contact": "Mr. Panya",
+        "phone": "038-987-6543",
+        "email": "pattaya.memorial@mail.com",
+        "deployedBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 10,
+        "no": 10,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Hatyai Medical",
+        "contact": "Dr. Sompong",
+        "phone": "074-345-6789",
+        "email": "hatyai.medical@mail.com",
+        "deployedBy": {
+            "name": "Emily Brown"
+        }
+    },
+    {
+        "id": 11,
+        "no": 11,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Siriraj Center",
+        "contact": "Ms. Wilai",
+        "phone": "02-876-5432",
+        "email": "siriraj.center@mail.com",
+        "deployedBy": {
+            "name": "David Clark"
+        }
+    },
+    {
+        "id": 12,
+        "no": 12,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Udon Hospital",
+        "contact": "Mr. Prawit",
+        "phone": "042-345-6789",
+        "email": "udon.hospital@mail.com",
+        "deployedBy": {
+            "name": "Sarah Wilson"
+        }
+    },
+    {
+        "id": 13,
+        "no": 13,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Rayong Medical",
+        "contact": "Dr. Somchai",
+        "phone": "038-765-4321",
+        "email": "rayong.medical@mail.com",
+        "deployedBy": {
+            "name": "Mike Johnson"
+        }
+    },
+    {
+        "id": 14,
+        "no": 14,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Lampang Hospital",
+        "contact": "Ms. Sunisa",
+        "phone": "054-234-5678",
+        "email": "lampang.hospital@mail.com",
+        "deployedBy": {
+            "name": "Jane Smith"
+        }
+    },
+    {
+        "id": 15,
+        "no": 15,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Thammasat Hospital",
+        "contact": "Mr. Thana",
+        "phone": "02-345-8765",
+        "email": "thammasat.hospital@mail.com",
+        "deployedBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 16,
+        "no": 16,
+        "licenseKey": "XXXX-XXXX-XXXX-XXXX",
+        "clientName": "Surat Medical Center",
+        "contact": "Dr. Pranee",
+        "phone": "077-654-3210",
+        "email": "surat.medical@mail.com",
+        "deployedBy": {
+            "name": "Emily Brown"
+        }
+    }
+]

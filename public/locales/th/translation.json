@@ -1,0 +1,597 @@
+{
+    "validation": {
+        "auth": {
+            "signin": {
+                "email_required": "กรุณากรอกอีเมล",
+                "email_invalid": "กรุณากรอกอีเมลให้ถูกต้อง",
+                "password_required": "กรุณากรอกรหัสผ่าน"
+            },
+            "register": {
+                "email_required": "กรุณากรอกอีเมล",
+                "email_invalid": "กรุณากรอกอีเมลให้ถูกต้อง",
+                "password_required": "กรุณากรอกรหัสผ่าน",
+                "confirm_password_required": "กรุณากรอกรหัสผ่านอีกครั้ง",
+                "password_mismatch": "รหัสผ่านไม่ตรงกัน",
+                "otp_required": "กรุณากรอกรหัส OTP",
+                "close": "ปิด"
+            },
+            "forgot_password": {
+                "request_success": "ส่งคำขอกู้คืนรหัสผ่านสำเร็จ",
+                "request_failed": "ส่งคำขอกู้คืนรหัสผ่านไม่สำเร็จ",
+                "otp_success": "ยืนยัน OTP สำหรับกู้คืนรหัสผ่านสำเร็จ",
+                "otp_failed": "ยืนยัน OTP สำหรับกู้คืนรหัสผ่านไม่สำเร็จ",
+                "token_required": "ไม่สามารถกู้คืนรหัสผ่านได้",
+                "token_required_description": "ไม่สามารถกู้คืนรหัสผ่านได้ กรุณาลองใหม่ในภายหลัง",
+                "password_changed": "เปลี่ยนรหัสผ่านสำเร็จ",
+                "change_failed": "เปลี่ยนรหัสผ่านไม่สำเร็จ",
+                "close": "ปิด"
+            }
+        }
+    },
+    "navbar": {
+        "profile": "โปรไฟล์",
+        "apiDoc": "เอกสาร API",
+        "signout": "ลงชื่อออกจากระบบ",
+        "signoutSuccess": "ลงชื่อออกจากระบบสำเร็จ",
+        "signoutFailed": "ลงชื่อออกจากระบบไม่สำเร็จ",
+        "signoutCTA": "ปิด"
+    },
+    "sidebar": {
+        "newOrder": "สร้างรายการสั่งซื้อ",
+        "dashboard": "แดชบอร์ด",
+        "services": "บริการ",
+        "orders": "รายการสั่งซื้อ",
+        "myOrders": "รายการสั่งซื้อของฉัน",
+        "placeOrder": "สั่งซื้อ",
+        "wallet": "กระเป๋าเงิน",
+        "addFund": "เติมเงิน",
+        "fundHistory": "ประวัติการเติมเงิน",
+        "transactionHistory": "ประวัติการทำรายการ",
+        "affliate": "Affliate",
+        "myAffliate": "Affliate ของฉัน",
+        "rentPanel": "เช่าเว็บไซต์",
+        "rentMainPanel": "เช่าเว็บไซต์หลัก",
+        "rentChildPanel": "เช่าเว็บไซต์ย่อย",
+        "supports": "การช่วยเหลือ",
+        "tickets": "ตั๋ว",
+        "createTicket": "สร้างตั๋ว"
+    },
+    "orderStatus": {
+        "inProgress": "กำลังดำเนินการ",
+        "completed": "เสร็จสิ้น",
+        "hold": "หยุดชั่วคราว",
+        "partiallyCompleted": "เสร็จสิ้นบางส่วน",
+        "cancelled": "ยกเลิก",
+        "onRefill": "On Refill",
+        "failed": "ล้มเหลว"
+    },
+    "childPanelStatus": {
+        "waitForApproval": "รอการอนุมัติ",
+        "inProgress": "กำลังดำเนินการ",
+        "stopped": "หยุดใช้งาน",
+        "rejected": "ปฏิเสธ"
+    },
+    "ticketStatus": {
+        "open": "เปิด",
+        "closed": "ปิด"
+    },
+    "ticketType": {
+        "placeOrder": "สั่งซื้อ",
+        "refill": "Refill",
+        "cancel": "ยกเลิก",
+        "mainPanel": "เช่าเว็บไซต์หลัก",
+        "childPanel": "เช่าเว็บไซต์ย่อย",
+        "affiliate": "Affiliate",
+        "others": "อื่นๆ"
+    },
+    "auth": {
+        "signin": {
+            "title": "เข้าสู่ระบบ",
+            "header": "เข้าสู่ระบบ",
+            "subheader": "กรอกอีเมลและรหัสผ่านของคุณเพื่อเข้าสู่ระบบ",
+            "email": "อีเมล",
+            "emailPlaceholder": "กรอกอีเมลของคุณ",
+            "password": "รหัสผ่าน",
+            "passwordPlaceholder": "กรอกรหัสผ่านของคุณ",
+            "forgotPassword": "ลืมรหัสผ่าน",
+            "loading": "กำลังเข้าสู่ระบบ...",
+            "login": "เข้าสู่ระบบ",
+            "register": "สมัครสมาชิก",
+            "noAccount": "ยังไม่มีบัญชี",
+            "signup": "สมัครสมาชิก",
+            "or": "หรือ"
+        },
+        "signup": {
+            "title": "สมัครสมาชิก",
+            "header": "สมัครสมาชิก",
+            "subheader": "ยินดีต้อนรับสู่ MeeLike. แพนเนล SMM ที่คุณสามารถเชื่อถือได้ คุณสามารถสมัครสมาชิกและสำรวจบริการของเราได้โดยไม่มีข้อจำกัด",
+            "email": "อีเมล",
+            "emailPlaceholder": "กรอกอีเมลของคุณ",
+            "name": "ชื่อ",
+            "namePlaceholder": "กรอกชื่อของคุณ",
+            "password": "รหัสผ่าน",
+            "passwordPlaceholder": "กรอกรหัสผ่านของคุณ",
+            "confirmPassword": "ยืนยันรหัสผ่าน",
+            "confirmPasswordPlaceholder": "ยืนยันรหัสผ่านของคุณ",
+            "loading": "กำลังสมัครสมาชิก...",
+            "signup": "สมัครสมาชิก",
+            "otp_title": "ยืนยันตัวตนด้วย OTP",
+            "otp_subheader": "กรุณากรอกรหัส OTP ที่ส่งไปยังอีเมลของคุณ เพื่อยืนยันการสมัครสมาชิกของคุณ",
+            "loading_otp": "กำลังตรวจสอบ OTP...",
+            "confirm_otp": "ยืนยัน OTP",
+            "haveAccount": "มีบัญชีอยู่แล้ว",
+            "signin": "เข้าสู่ระบบ",
+            "or": "หรือ",
+            "successText": "ขอบคุณที่ลงทะเบียนกับเรา โปรดตรวจสอบอีเมลของคุณเพื่อยืนยันบัญชีของคุณ",
+            "backToLogin": "กลับไปที่หน้าเข้าสู่ระบบ",
+            "completed_title": "ยืนยันบัญชีสำเร็จ",
+            "completed": "บัญชีของคุณได้รับการยืนยันแล้ว คุณสามารถเข้าสู่ระบบด้วยอีเมลและรหัสผ่านของคุณได้แล้ว"
+        },
+        "forgotPassword": {
+            "title": "ลืมรหัสผ่าน",
+            "subheader": "กรอกอีเมลของคุณเพื่อกู้คืนบัญชีผู้ใช้งาน",
+            "email": "อีเมล",
+            "recover": "กู้คืน",
+            "areYouSure": "คุณแน่ใจหรือไม่ว่าต้องการกู้คืนบัญชีผู้ใช้งานของคุณ",
+            "description": "เราจะส่งอีเมลถึงคุณเพื่อกู้คืนบัญชีผู้ใช้งานของคุณ",
+            "confirm": "ยืนยัน",
+            "cancel": "ยกเลิก",
+            "successHeader": "ส่งคำขอกู้คืนรหัสผ่านสำเร็จ",
+            "successSubheader": "เราได้ส่งอีเมลถึงคุณเพื่อกู้คืนบัญชีผู้ใช้งานของคุณ โปรดตรวจสอบอีเมลของคุณเพื่อดำเนินการต่อ",
+            "backToLogin": "กลับไปที่หน้าเข้าสู่ระบบ",
+            "otpHeader": "กรอกรหัส OTP",
+            "otpSubheader": "กรุณากรอกรหัส OTP ที่ส่งไปยังอีเมลของคุณ",
+            "enterOtp": "กรอกรหัส OTP",
+            "verifyOtp": "ยืนยันรหัส OTP",
+            "changePasswordHeader": "เปลี่ยนรหัสผ่าน",
+            "changePasswordCTA": "เปลี่ยนรหัสผ่าน"
+        },
+        "changePassword": {
+            "title": "เปลี่ยนรหัสผ่าน",
+            "header": "เปลี่ยนรหัสผ่าน",
+            "subheader": "เพื่อความปลอดภัย กรุณากรอกรหัสผ่านใหม่โดยจะต้องมีอย่างน้อย 8 ตัว ซึ่งประกอบไปด้วยตัวอักษร, ตัวเลข และอักขระพิเศษ",
+            "newPassword": "รหัสผ่านใหม่",
+            "confirmPassword": "ยืนยันรหัสผ่าน",
+            "submit": "ยืนยัน",
+            "successHeader": "รหัสผ่านใหม่ของคุณถูกบันทึกแล้ว",
+            "successSubheader": "คุณสามารถเข้าสู่ระบบด้วยรหัสผ่านใหม่ของคุณได้แล้ว",
+            "backToLogin": "กลับไปที่หน้าเข้าสู่ระบบ",
+            "passwordMismatch": "รหัสผ่านไม่ตรงกัน"
+        }
+    },
+    "dashboard": {
+        "title": "แดชบอร์ด",
+        "goodMorning": "สวัสดีตอนเช้า",
+        "goodAfternoon": "สวัสดีตอนบ่าย",
+        "goodEvening": "สวัสดีตอนเย็น",
+        "welcomeTo": "ยินดีต้อนรับสู่",
+        "membership": "ระบบสมาชิก",
+        "membershipTooltip": "คุณสามารถเลื่อนขั้นเพื่อเพิ่มสิทธิพิเศษ",
+        "toReachLevel": "เพื่อเลื่อนขั้น",
+        "inProgress": "กำลังดำเนินการ",
+        "inprogressTooltip": "คำสั่งซื้อที่กำลังดำเนินการ",
+        "referralBalance": "ยอดเงินค่าคอมมิชชั่น",
+        "referralBalanceTooltip": "ยอดเงินค่าคอมมิชชั่นที่คุณได้รับจากการแนะนำ",
+        "balance": "ยอดเงินในกระเป๋า",
+        "balanceTooltip": "ยอดเงินที่คุณมีในกระเป๋า",
+        "openedTicket": "ตั๋วที่เปิดอยู่",
+        "openedTicketTooltip": "ตั๋วที่คุณเปิดอยู่",
+        "orderUnit": "รายการสั่งซื้อ",
+        "ticketUnit": "ตั๋ว",
+        "view": "ดู",
+        "addFund": "เติมเงิน",
+        "placeOrder": "สั่งซื้อ",
+        "7days": "7 วัน",
+        "30days": "30 วัน",
+        "365days": "1 ปี",
+        "totalSpend": "ยอดค่าใช้จ่ายทั้งหมด",
+        "totalProfit": "กำไรทั้งหมด",
+        "income": "รายได้",
+        "expense": "ค่าใช้จ่าย",
+        "mostOrders": "รายการสั่งซื้อที่มีการสั่งซื้อมากที่สุด",
+        "service": "บริการ",
+        "category": "หมวดหมู่",
+        "amountOrders": "จำนวนรายการสั่งซื้อ",
+        "detail": "รายละเอียด"
+    },
+    "services": {
+        "title": "บริการ",
+        "filters": "ตัวกรอง",
+        "search": "ค้นหา",
+        "searchPlaceholder": "ค้นหาด้วย ID หรือชื่อบริการ",
+        "platform": "แพลตฟอร์ม",
+        "category": "หมวดหมู่",
+        "table": {
+            "serviceId": "รหัสบริการ",
+            "service": "บริการ",
+            "category": "หมวดหมู่",
+            "ratePer1000": "อัตราค่าบริการต่อ 1000 คน",
+            "minMax": "ขั้นต่ำ/สูงสุด",
+            "averageTime": "เวลาเฉลี่ย",
+            "detail": "รายละเอียด",
+            "placeOrder": "สั่งซื้อ"
+        }
+    },
+    "serviceDetail": {
+        "orders": "รายการสั่งซื้อ",
+        "orderNow": "สั่งซื้อเดี๋ยวนี้",
+        "averageTime": "เวลาเฉลี่ย",
+        "averageTimeTooltip": "เวลาที่ใช้ในการดำเนินการรายการสั่งซื้อ",
+        "speedOrdersPerDay": "ความเร็วรายการสั่งซื้อต่อวัน",
+        "speedOrdersPerDayTooltip": "จำนวนรายการสั่งซื้อที่สามารถดำเนินการได้ต่อวัน",
+        "minQuantity": "จำนวนขั้นต่ำ",
+        "minQuantityTooltip": "จำนวนขั้นต่ำที่สามารถสั่งซื้อ",
+        "maxQuantity": "จำนวนสูงสุด",
+        "maxQuantityTooltip": "จำนวนสูงสุดที่สามารถสั่งซื้อ",
+        "dropRate": "Drop Rate",
+        "dropRateTooltip": "Drop rate of the service",
+        "warranty": "การรับประกัน",
+        "warrantyTooltip": "จำนวนวันที่รับประกัน",
+        "quality": "คุณภาพ",
+        "qualityTooltip": "คุณภาพของบริการ",
+        "refill": "Refill",
+        "refillTooltip": "Refill guarantee of the service",
+        "orderCompletion": "สถิติอัตราการดำเนินการรายการสั่งซื้อ"
+    },
+    "orders": {
+        "title": "รายการสั่งซื้อ",
+        "filters": "ตัวกรอง",
+        "search": "ค้นหา",
+        "searchPlaceholder": "ค้นหาด้วยรหัส ID ของบริการ, ชื่อบริการ หรือลิงก์",
+        "orderDate": "วันที่สั่งซื้อ",
+        "platform": "แพลตฟอร์ม",
+        "category": "หมวดหมู่",
+        "status": "สถานะ",
+        "newOrder": "สร้างรายการสั่งซื้อ",
+        "table": {
+            "orderId": "รหัสรายการสั่งซื้อ",
+            "orderDate": "วันที่สั่งซื้อ",
+            "service": "บริการ",
+            "targetLinkUrl": "ลิงก์",
+            "dripFeed": "Drip Feed",
+            "intervalTime": "ระยะห่างของเวลาแต่ละรอบ",
+            "quantityPerRound": "จำนวนต่อรอบ",
+            "quantity": "จำนวน",
+            "completion": "ความคืบหน้า",
+            "status": "สถานะ",
+            "refill": "Refill"
+        }
+    },
+    "placeOrder": {
+        "title": "สร้างรายการสั่งซื้อ",
+        "header": "สร้างรายการสั่งซื้อ",
+        "platform": "แพลตฟอร์ม",
+        "category": "หมวดหมู่",
+        "services": "บริการ",
+        "servicesPlaceholder": "เลือกบริการ",
+        "targetLinkUrl": "ลิงก์",
+        "targetLinkUrlHelperText": "ลิงก์ต้องเป็นลิงก์ที่ถูกต้อง ตัวอย่าง https://example.com",
+        "quantity": "จำนวน",
+        "quantityPlaceholder": "กรอกจำนวนที่ต้องการสั่งซื้อ",
+        "min": "ขั้นต่ำ",
+        "max": "สูงสุด",
+        "dripFeedEnable": "เปิดใช้งาน Drip Feed",
+        "dripFeed": "Drip Feed",
+        "days": "วัน",
+        "hours": "ชั่วโมง",
+        "minutes": "นาที",
+        "minumIntervalTime": "ระยะห่างของเวลาแต่ละรอบ",
+        "quantityPerRound": "จำนวนต่อรอบ",
+        "quantityPerRoundPlaceholder": "กรอกจำนวนที่ต้องการสั่งซื้อต่อรอบ",
+        "totalPrice": "ยอดสุทธิทั้งหมด",
+        "discountTooltip": "ส่วนลด",
+        "cancel": "ยกเลิก",
+        "buyNow": "สั่งซื้อ",
+        "addToCart": "เพิ่มลงในตะกร้า"
+    },
+    "cart": {
+        "title": "ตะกร้า",
+        "header": "ตะกร้า",
+        "table": {
+            "service": "บริการ",
+            "detail": "รายละเอียด",
+            "quantity": "จำนวน",
+            "price": "ราคา",
+            "interval": "ระยะห่างของเวลาแต่ละรอบ",
+            "quantityPerRound": "จำนวนต่อรอบ"
+        },
+        "summary": {
+            "priceServices": "ราคาบริการ",
+            "discount": "ส่วนลด",
+            "totalPrice": "ยอดสุทธิ",
+            "checkout": "ชำระเงิน"
+        },
+        "emptyCart": "ไม่มีสินค้าในตะกร้า",
+        "alert": {
+            "deleteItem": {
+                "title": "ลบรายการในตะกร้า",
+                "description": "คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้ออกจากตะกร้า",
+                "confirm": "ยืนยัน",
+                "cancel": "ยกเลิก"
+            },
+            "checkout": {
+                "title": "ชำระเงิน",
+                "description": "คุณต้องการที่จะชำระเงินหรือไม่",
+                "confirm": "ยืนยัน",
+                "cancel": "ยกเลิก"
+            },
+            "deleteSuccess": {
+                "title": "ลบรายการในตะกร้าสำเร็จ",
+                "description": "รายการในตะกร้าถูกลบออกแล้ว",
+                "cta": "ปิด"
+            },
+            "deleteUnsuccess": {
+                "title": "ลบรายการในตะกร้าไม่สำเร็จ",
+                "description": "เกิดข้อผิดพลาดขณะลบรายการในตะกร้า",
+                "cta": "ปิด"
+            },
+            "checkoutSuccess": {
+                "title": "ชำระเงินสำเร็จ",
+                "description": "คุณสามารถติดตามสถานะการสั่งซื้อของคุณได้ที่หน้ารายการสั่งซื้อ",
+                "cta": "ปิด"
+            },
+            "checkoutUnsuccess": {
+                "title": "ชำระเงินไม่สำเร็จ",
+                "description": "เกิดข้อผิดพลาดขณะชำระเงิน",
+                "cta": "ปิด"
+            }
+        }
+    },
+    "walletAddFund": {
+        "title": "กระเป๋า (เติมเงิน)",
+        "balance": "ยอดเงินคงเหลือ",
+        "addFund": "เติมเงิน",
+        "transactionHistory": "ประวัติการทำรายการ",
+        "fundHistory": "ประวัติการเติมเงิน",
+        "paymentMethod": "วิธีการชำระเงิน",
+        "minimumAmount": "จำนวนเงินขั้นต่ำ",
+        "trueMoney": "True Money",
+        "creditCardDebitCard": "Credit Card / Debit Card",
+        "promptPay": "Prompt Pay",
+        "cryptomus": "Cryptomus",
+        "perfectMoney": "Perfect Money",
+        "amount": "จำนวนเงิน",
+        "amountPlaceholder": "กรอกจำนวนเงินที่ต้องการเติม",
+        "cautionHeader": "คำเตือน",
+        "cautionDetail": "1. กรุณาตรวจสอบว่าคุณได้กรอกจำนวนเงินที่ถูกต้อง <br /><br /> 2. กรุณาตรวจสอบว่าคุณได้กรอกหมายเลขบัญชีที่ถูกต้อง",
+        "instruction": "คำแนะนำ",
+        "instructionDetail": "1. กรุณาเลือกวิธีการชำระเงินที่คุณต้องการ <br /> 2. กรอกจำนวนเงินที่คุณต้องการเติม <br /> 3. กดปุ่ม 'เติมเงิน' เพื่อดำเนินการต่อ",
+        "confirm": "ยืนยัน",
+        "alert": {
+            "minimumAmount": {
+                "title": "จำนวนเงินขั้นต่ำ",
+                "description": "จำนวนเงินที่คุณต้องการเติมต้องมากกว่าหรือเท่ากับจำนวนเงินขั้นต่ำ",
+                "cta": "ปิด"
+            },
+            "addFundConfirmation": {
+                "title": "ยืนยันการเติมเงิน",
+                "description": "คุณแน่ใจหรือไม่ว่าต้องการเติมเงิน",
+                "confirm": "ยืนยัน",
+                "cancel": "ยกเลิก"
+            },
+            "addFundSuccess": {
+                "title": "เติมเงินสำเร็จ",
+                "description": "เงินของคุณได้รับการเติมเข้ามาแล้ว",
+                "cta": "ปิด"
+            },
+            "addFundUnsuccess": {
+                "title": "เติมเงินไม่สำเร็จ",
+                "description": "เกิดข้อผิดพลาดขณะเติมเงิน",
+                "cta": "ปิด"
+            }
+        }
+    },
+    "walletFundHistory": {
+        "title": "กระเป๋า (ประวัติการเติมเงิน)",
+        "transactionDate": "วันที่ทำรายการ",
+        "exportData": "Export Data",
+        "table": {
+            "transactionDate": "วันที่ทำรายการ",
+            "transactionId": "รหัสรายการ",
+            "paymentMethod": "วิธีการชำระเงิน",
+            "amount": "จำนวนเงิน",
+            "downloadReceipt": "ดาวน์โหลดใบเสร็จ"
+        },
+        "paymentMethod": {
+            "trueMoney": "True Money",
+            "creditCardDebitCard": "Credit Card / Debit Card",
+            "promptPay": "Prompt Pay",
+            "cryptomus": "Cryptomus",
+            "perfectMoney": "Perfect Money"
+        }
+    },
+    "walletTransactionHistory": {
+        "title": "กระเป๋า (ประวัติการทำรายการ)",
+        "typeLabel": "ประเภท",
+        "type": {
+            "all": "ทั้งหมด",
+            "service": "บริการ",
+            "childPanel": "เช่าเว็บไซต์ย่อย"
+        },
+        "transactionDate": "วันที่ทำรายการ",
+        "exportData": "Export Data",
+        "table": {
+            "transactionDate": "วันที่ทำรายการ",
+            "transactionId": "รหัสรายการ",
+            "detail": "รายละเอียด",
+            "type": "ประเภท",
+            "amount": "จำนวนเงิน"
+        }
+    },
+    "affiliate": {
+        "title": "Affiliate",
+        "header": "MeeLike Affiliate",
+        "headerDetail": "คุณสามารถเข้าร่วมโปรแกรม Affiliate ของเราและรับค่าคอมมิชชั่นจากการแนะนำ",
+        "conversionRate": "Conversion Rate",
+        "rate": "Rate",
+        "totalReferrals": "Total Referrals",
+        "register": "Register",
+        "myReferralLinkUrl": "ลิงก์แนะนำของฉัน",
+        "referralBalance": "ยอดเงินค่าคอมมิชชั่น",
+        "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+        "termsAndConditionsDetail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br /><br /> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "copy": "คัดลอก"
+    },
+    "rentMainPanel": {
+        "title": "เช่าเว็บไซต์หลัก",
+        "header": "เช่าเว็บไซต์หลัก",
+        "headerDetail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "estimator": {
+            "title": "จำนวนคำสั่งซื้อที่คาดว่าจะได้รับต่อเดือน",
+            "quantityPlaceHolder": "กรอกจำนวนคำสั่งซื้อที่คาดว่าจะได้รับต่อเดือน",
+            "maintenanceFeeMonthly": "ค่าบำรุงรักษารายเดือน",
+            "contactUs": "ติดต่อเรา",
+            "plan": "แผน",
+            "orderAmount": "จำนวนคำสั่งซื้อ",
+            "price": "ราคา",
+            "orders": "คำสั่งซื้อ",
+            "orderUpwards": "คำสั่งซื้อขึ้นไป"
+        },
+        "comparison": {
+            "feature": "คุณสมบัติ",
+            "mainPanel": "เช่าเว็บไซต์หลัก",
+            "childPanel": "เช่าเว็บไซต์ย่อย"
+        }
+    },
+    "rentChildPanelCreate": {
+        "title": "เช่าเว็บไซต์ย่อย",
+        "header": "เช่าเว็บไซต์ย่อย",
+        "headerDetail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "whatIsChildPanel": "เช่าเว็บไซต์ย่อยคืออะไร?",
+        "whatIsChildPanelDetail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "pleaseAdjustYourNameServer": "กรุณาปรับเปลี่ยน Name Server ของคุณ",
+        "form": {
+            "domainName": "ชื่อโดเมน",
+            "domainNamePlaceholder": "กรอกชื่อโดเมนของคุณ",
+            "domainNameHelperText": "อาทิเช่น meelike-th.com, nontracomputer.com",
+            "currency": "สกุลเงิน",
+            "adminUsername": "ชื่อผู้ใช้งานของผู้ดูแลระบบ",
+            "adminUsernamePlaceholder": "กรอกชื่อผู้ใช้งานของผู้ดูแลระบบ",
+            "adminPassword": "รหัสผ่านของผู้ดูแลระบบ",
+            "adminPasswordPlaceholder": "กรอกรหัสผ่านของผู้ดูแลระบบ",
+            "confirmPassword": "ยืนยันรหัสผ่าน",
+            "confirmPasswordPlaceholder": "ยืนยันรหัสผ่านของผู้ดูแลระบบ",
+            "autoRenewal": "ต่ออายุอัตโนมัติ",
+            "submit": "ยืนยัน"
+        }
+    },
+    "rentChildPanel": {
+        "title": "เช่าเว็บไซต์ย่อย",
+        "filters": "ตัวกรอง",
+        "search": "ค้นหา",
+        "searchPlaceholder": "ค้นหาชื่อโดเมน",
+        "availableDate": "วันที่เริ่มต้น - วันที่สิ้นสุด",
+        "status": "สถานะ",
+        "create": "สร้าง",
+        "table": {
+            "childPanelId": "รหัสเว็บไซต์ย่อย",
+            "availableDate": "วันที่เริ่มต้น - วันที่สิ้นสุด",
+            "domainName": "ชื่อโดเมน",
+            "status": "สถานะ",
+            "viewUsernamePassword": "ดูชื่อผู้ใช้งาน/รหัสผ่าน",
+            "renew": "ต่ออายุ"
+        }
+    },
+    "tickets": {
+        "title": "ตั๋ว",
+        "filters": "ตัวกรอง",
+        "search": "ค้นหา",
+        "searchPlaceholder": "ค้นหาด้วยรหัส ID หรือชื่อเรื่อง",
+        "issuedDate": "วันที่แจ้งปัญหา",
+        "closedDate": "วันที่ปิดปัญหา",
+        "type": "ประเภท",
+        "status": "สถานะ",
+        "table": {
+            "ticketId": "รหัสตั๋ว",
+            "issuedDate": "วันที่แจ้งปัญหา",
+            "detail": "รายละเอียด",
+            "referenceId": "รหัสอ้างอิง",
+            "type": "ประเภท",
+            "closedDate": "วันที่ปิดปัญหา",
+            "status": "สถานะ",
+            "viewDetail": "ดูรายละเอียด"
+        }
+    },
+    "ticketCreate": {
+        "title": "สร้างตั๋ว",
+        "header": "สร้างตั๋ว",
+        "headerDetail": "กรอกแบบฟอร์มด้านล่างเพื่อสร้างตั๋ว",
+        "caution": "ผู้ดูแลระบบจะตอบกลับภายใน 30 - 45 นาที",
+        "ticketType": "ประเภท",
+        "topic": "หัวข้อ",
+        "topicPlaceholder": "กรอกหัวข้อของปัญหา",
+        "relatedOrder": "รายการที่เกี่ยวข้อง",
+        "message": "ข้อความ",
+        "messagePlaceholder": "กรอกข้อความของคุณ",
+        "attachments": "ไฟล์แนบ",
+        "submit": "สร้าง",
+        "alert": {
+            "confirmation": {
+                "title": "ยืนยันการสร้างตั๋ว",
+                "description": "คุณแน่ใจหรือไม่ว่าต้องการสร้างตั๋ว",
+                "confirm": "ยืนยัน",
+                "cancel": "ยกเลิก"
+            },
+            "success": {
+                "title": "สร้างตั๋วสำเร็จ",
+                "description": "ตั๋วของคุณถูกสร้างเรียบร้อยแล้ว",
+                "cta": "ปิด"
+            },
+            "failed": {
+                "title": "สร้างตั๋วไม่สำเร็จ",
+                "description": "เกิดข้อผิดพลาดขณะสร้างตั๋ว",
+                "cta": "ปิด"
+            }
+        }
+    },
+    "ticketDetail": {
+        "title": "รายละเอียดตั๋ว",
+        "typeMessage": "พิมพ์ข้อความ...",
+        "attachment": "ไฟล์แนบ",
+        "send": "ส่ง"
+    },
+    "accountSetting": {
+        "navbar": {
+            "profile": "โปรไฟล์",
+            "password": "รหัสผ่าน",
+            "2fa": "2FA",
+            "localization": "เวลา",
+            "membership": "ระดับสมาชิก",
+            "apiKey": "API Key"
+        },
+        "2fa": {
+            "title": "การยืนยันตัวตนด้วย 2FA",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "activate": "เปิดใช้งาน",
+            "deactivate": "ปิดใช้งาน"
+        }
+    },
+    "2faRequiredPopup": {
+        "errorCode": "กรุณากรอกรหัสยืนยันตัวตน",
+        "title": "ยืนยันตัวตนด้วย 2FA",
+        "emailDescription": "กรุณากรอกรหัสยืนยันตัวตนที่ส่งไปยังอีเมลของคุณ",
+        "authenticatorAppDescription": "กรุณากรอกรหัสยืนยันตัวตนที่แอพพลิเคชั่นมือถือของคุณ",
+        "close": "ปิด",
+        "continue": "ดำเนินการต่อ",
+        "yourActionFullfilled": "คุณได้ดำเนินการเรียบร้อยแล้ว"
+    },
+    "2faPopupEnable": {
+        "errorClose": "ปิด",
+        "header": "ลงทะเบียนเปิดใช้งานยืนยันตัวตนด้วย 2FA",
+        "description": "ใช้แอพพลิเคชั่นมือถือในการยืนยันตน อาทิเช่น Google Authenticator, Microsoft Autheticator, 1Password, Authy or LastPass etc.",
+        "escanTitle": "สแกน QR Code",
+        "escanDescription": "หากไม่สามารถสแกน QR Code ได้ กรุณาคัดลอกโค้ดด้านล่างไปวางในแอพพลิเคชั่น",
+        "escanCode": "รหัส QR Code สำหรับลงทะเบียน",
+        "verificationCode": "รหัสยืนยันตัวตน",
+        "copy": "คัดลอก",
+        "paste": "วาง",
+        "confirm": "ยืนยัน",
+        "close": "ปิด",
+        "copiedToClipboard": "คัดลอกไปยังคลิปบอร์ดแล้ว",
+        "codeRequired": "กรุณากรอกรหัสยืนยันตัวตน",
+        "success_msg": "เปิดใช้งาน 2FA สำเร็จ",
+        "error_msg": "เกิดข้อผิดพลาดขณะเปิดใช้งาน 2FA",
+        "success_desc_msg": "คุณได้เปิดใช้งาน 2FA สำเร็จแล้ว",
+        "error_desc_msg": "เกิดข้อผิดพลาดขณะเปิดใช้งาน 2FA กรุณาลองใหม่อีกครั้ง"
+    }
+}

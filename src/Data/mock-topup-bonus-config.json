@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "paymentMethod": "promptpay",
+        "paymentMethodTitle": "PromptPay",
+        "bonusPercentage": "5.00",
+        "from": "0.00",
+        "enabled": true,
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "updatedAt": "2024-12-01T00:00:00.000Z"
+    },
+    {
+        "id": "2",
+        "paymentMethod": "truemoney",
+        "paymentMethodTitle": "TrueMoney Wallet",
+        "bonusPercentage": "10.00",
+        "from": "1000.00",
+        "enabled": true,
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "updatedAt": "2024-12-05T00:00:00.000Z"
+    },
+    {
+        "id": "3",
+        "paymentMethod": "credit_card",
+        "paymentMethodTitle": "Credit Card / Debit Card",
+        "bonusPercentage": "3.00",
+        "from": "500.00",
+        "enabled": true,
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "updatedAt": "2024-11-20T00:00:00.000Z"
+    },
+    {
+        "id": "4",
+        "paymentMethod": "paysolutions",
+        "paymentMethodTitle": "PaySolutions",
+        "bonusPercentage": "7.50",
+        "from": "2000.00",
+        "enabled": false,
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "updatedAt": "2024-10-15T00:00:00.000Z"
+    }
+]

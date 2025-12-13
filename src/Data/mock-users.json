@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "username": "johndoe",
+        "email": "john@example.com",
+        "phone": "0891234567",
+        "balance": 1500.00,
+        "totalSpent": 25000.00,
+        "createdAt": "2024-01-15T10:00:00.000Z",
+        "isActive": true
+    },
+    {
+        "id": "2",
+        "username": "janedoe",
+        "email": "jane@example.com",
+        "phone": "0899876543",
+        "balance": 3200.50,
+        "totalSpent": 45000.00,
+        "createdAt": "2024-02-20T14:30:00.000Z",
+        "isActive": true
+    },
+    {
+        "id": "3",
+        "username": "alice",
+        "email": "alice@example.com",
+        "phone": "0812345678",
+        "balance": 500.00,
+        "totalSpent": 8500.00,
+        "createdAt": "2024-03-10T09:15:00.000Z",
+        "isActive": true
+    },
+    {
+        "id": "4",
+        "username": "bob",
+        "email": "bob@example.com",
+        "phone": "0823456789",
+        "balance": 0,
+        "totalSpent": 1200.00,
+        "createdAt": "2024-05-05T16:45:00.000Z",
+        "isActive": false
+    },
+    {
+        "id": "5",
+        "username": "charlie",
+        "email": "charlie@example.com",
+        "phone": "0834567890",
+        "balance": 7800.25,
+        "totalSpent": 120000.00,
+        "createdAt": "2023-11-01T08:00:00.000Z",
+        "isActive": true
+    }
+]

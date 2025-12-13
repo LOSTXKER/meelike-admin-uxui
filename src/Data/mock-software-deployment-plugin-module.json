@@ -1,0 +1,9 @@
+[
+    {
+        "id": "1",
+        "code": "billing",
+        "name": "Billing",
+        "description": "Managing invoices and payments.",
+        "img": "/assets/clink/plugin/bill.png"
+    }
+]

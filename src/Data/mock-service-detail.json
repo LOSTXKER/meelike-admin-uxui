@@ -1,0 +1,19 @@
+{
+    "serviceId": "1",
+    "name": "Facebook Like 1,000 | No Warranty",
+    "shortDescription": "No Drop, No Refill (Picture Post Only)",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "platform": "facebook",
+    "category": "like",
+    "categoryName": "Facebook Likes",
+    "ratePer1000": 35.2,
+    "minQuantity": 1000,
+    "maxQuantity": 1000000,
+    "averageTimeHrs": 1.25,
+    "speedOrdersPerDay": 8000,
+    "dropRate": 0.1,
+    "warrantyEnabled": false,
+    "warrantyDurationDays": 0,
+    "quality": 5,
+    "refillable": false
+}

@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "no": 1,
+        "area": "North",
+        "clientName": "Onnut Hospital 2",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "onnut.hospital@mail.com",
+        "createdBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 2,
+        "no": 2,
+        "area": "Central",
+        "clientName": "Bangkok Hospital",
+        "contact": "Ms. Nattaya",
+        "phone": "082-345-6789",
+        "email": "bangkok.hospital@mail.com",
+        "createdBy": {
+            "name": "Jane Smith"
+        }
+    },
+    {
+        "id": 3,
+        "no": 3,
+        "area": "North",
+        "clientName": "Onnut Hospital 1",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "onnut.hospital@mail.com",
+        "createdBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 4,
+        "no": 4,
+        "area": "South",
+        "clientName": "Songkhla Hospital",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "songkhla.hospital@mail.com",
+        "createdBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 5,
+        "no": 5,
+        "area": "South",
+        "clientName": "Phuket Hospital",
+        "contact": "Mr. Somchai",
+        "phone": "081-234-5678",
+        "email": "phuket.hospital@mail.com",
+        "createdBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 6,
+        "no": 6,
+        "area": "North",
+        "clientName": "Chiangmai Medical Center",
+        "contact": "Ms. Supaporn",
+        "phone": "053-123-4567",
+        "email": "chiangmai.med@mail.com",
+        "createdBy": {
+            "name": "Sarah Wilson"
+        }
+    },
+    {
+        "id": 7,
+        "no": 7,
+        "area": "Central",
+        "clientName": "Rama Hospital",
+        "contact": "Dr. Prasert",
+        "phone": "02-345-6789",
+        "email": "rama.hospital@mail.com",
+        "createdBy": {
+            "name": "Mike Johnson"
+        }
+    },
+    {
+        "id": 8,
+        "no": 8,
+        "area": "Northeast",
+        "clientName": "Khon Kaen Hospital",
+        "contact": "Ms. Rattana",
+        "phone": "043-234-5678",
+        "email": "khonkaen.hospital@mail.com",
+        "createdBy": {
+            "name": "Jane Smith"
+        }
+    },
+    {
+        "id": 9,
+        "no": 9,
+        "area": "East",
+        "clientName": "Pattaya Memorial",
+        "contact": "Mr. Panya",
+        "phone": "038-987-6543",
+        "email": "pattaya.memorial@mail.com",
+        "createdBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 10,
+        "no": 10,
+        "area": "South",
+        "clientName": "Hatyai Medical",
+        "contact": "Dr. Sompong",
+        "phone": "074-345-6789",
+        "email": "hatyai.medical@mail.com",
+        "createdBy": {
+            "name": "Emily Brown"
+        }
+    },
+    {
+        "id": 11,
+        "no": 11,
+        "area": "Central",
+        "clientName": "Siriraj Center",
+        "contact": "Ms. Wilai",
+        "phone": "02-876-5432",
+        "email": "siriraj.center@mail.com",
+        "createdBy": {
+            "name": "David Clark"
+        }
+    },
+    {
+        "id": 12,
+        "no": 12,
+        "area": "Northeast",
+        "clientName": "Udon Hospital",
+        "contact": "Mr. Prawit",
+        "phone": "042-345-6789",
+        "email": "udon.hospital@mail.com",
+        "createdBy": {
+            "name": "Sarah Wilson"
+        }
+    },
+    {
+        "id": 13,
+        "no": 13,
+        "area": "East",
+        "clientName": "Rayong Medical",
+        "contact": "Dr. Somchai",
+        "phone": "038-765-4321",
+        "email": "rayong.medical@mail.com",
+        "createdBy": {
+            "name": "Mike Johnson"
+        }
+    },
+    {
+        "id": 14,
+        "no": 14,
+        "area": "North",
+        "clientName": "Lampang Hospital",
+        "contact": "Ms. Sunisa",
+        "phone": "054-234-5678",
+        "email": "lampang.hospital@mail.com",
+        "createdBy": {
+            "name": "Jane Smith"
+        }
+    },
+    {
+        "id": 15,
+        "no": 15,
+        "area": "Central",
+        "clientName": "Thammasat Hospital",
+        "contact": "Mr. Thana",
+        "phone": "02-345-8765",
+        "email": "thammasat.hospital@mail.com",
+        "createdBy": {
+            "name": "John Doe"
+        }
+    },
+    {
+        "id": 16,
+        "no": 16,
+        "area": "South",
+        "clientName": "Surat Medical Center",
+        "contact": "Dr. Pranee",
+        "phone": "077-654-3210",
+        "email": "surat.medical@mail.com",
+        "createdBy": {
+            "name": "Emily Brown"
+        }
+    }
+]

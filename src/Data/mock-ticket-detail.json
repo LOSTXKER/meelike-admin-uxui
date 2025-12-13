@@ -1,0 +1,96 @@
+{
+    "status": "10",
+    "topic": "My order is too slow",
+    "message": "I placed an order 2 days ago and it still hasn't arrived. Can you help me?",
+    "typeId": "1",
+    "type": {
+        "id": "1",
+        "name": "Place Order"
+    },
+    "reference": ["ORD-123456", "ORD-123457"],
+    "attachments": [
+        {
+            "id": "1",
+            "name": "screenshot.jpg",
+            "url": "https://fastly.picsum.photos/id/611/200/300.jpg?hmac=g8018R8VfYX1xH5vjzmk368winrl1sOYBU5FghLJLyE"
+        },
+        {
+            "id": "2",
+            "name": "screenshot.jpg",
+            "url": "https://fastly.picsum.photos/id/611/200/300.jpg?hmac=g8018R8VfYX1xH5vjzmk368winrl1sOYBU5FghLJLyE"
+        },
+        {
+            "id": "3",
+            "name": "screenshot.jpg",
+            "url": "https://fastly.picsum.photos/id/611/200/300.jpg?hmac=g8018R8VfYX1xH5vjzmk368winrl1sOYBU5FghLJLyE"
+        },
+        {
+            "id": "4",
+            "name": "screenshot.jpg",
+            "url": "https://fastly.picsum.photos/id/611/200/300.jpg?hmac=g8018R8VfYX1xH5vjzmk368winrl1sOYBU5FghLJLyE"
+        },
+        {
+            "id": "5",
+            "name": "screenshot.jpg",
+            "url": "https://fastly.picsum.photos/id/611/200/300.jpg?hmac=g8018R8VfYX1xH5vjzmk368winrl1sOYBU5FghLJLyE"
+        }
+    ],
+    "replyMessages": [
+        {
+            "id": "1",
+            "messageType": "text",
+            "message": "I'm sorry to hear that your order is taking longer than expected. I will look into this for you and get back to you as soon as possible.",
+            "responseBy": "Support",
+            "typeResponse": "support",
+            "createdAt": "2021-01-01T12:00:00"
+        },
+        {
+            "id": "2",
+            "messageType": "text",
+            "message": "Thank you for your patience. I have checked your order and it appears to be delayed. I have contacted the courier and will update you as soon as I have more information.",
+            "responseBy": "Support",
+            "typeResponse": "support",
+            "createdAt": "2021-01-01T12:00:00"
+        },
+        {
+            "id": "3",
+            "messageType": "text",
+            "message": "I have received an update from the courier and your order is due to be delivered tomorrow. I will send you a tracking number as soon as I have it.",
+            "responseBy": "Support",
+            "typeResponse": "support",
+            "createdAt": "2021-01-01T12:00:00"
+        },
+        {
+            "id": "4",
+            "messageType": "text",
+            "message": "Thank you for your patience. I have checked your order and it appears to be delayed. I have contacted the courier and will update you as soon as I have more information.",
+            "responseBy": "Support",
+            "typeResponse": "support",
+            "createdAt": "2021-01-01T12:00:00"
+        },
+        {
+            "id": "5",
+            "messageType": "file",
+            "message": "https://fastly.picsum.photos/id/611/200/300.jpg?hmac=g8018R8VfYX1xH5vjzmk368winrl1sOYBU5FghLJLyE",
+            "responseBy": "Support",
+            "typeResponse": "support",
+            "createdAt": "2021-01-01T12:00:00"
+        },
+        {
+            "id": "6",
+            "messageType": "text",
+            "message": "I'm sorry to hear that your order is taking longer than expected. I will look into this for you and get back to you as soon as possible.",
+            "responseBy": "User",
+            "typeResponse": "user",
+            "createdAt": "2021-01-01T12:00:00"
+        },
+        {
+            "id": "7",
+            "messageType": "text",
+            "message": "I have received an update from the courier and your order is due to be delivered tomorrow. I will send you a tracking number as soon as I have it.",
+            "responseBy": "Support",
+            "typeResponse": "support",
+            "createdAt": "2021-01-01T12:00:00"
+        }
+    ]
+}

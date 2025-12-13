@@ -1,0 +1,13 @@
+export enum OrderStatus {
+    AWAITING = 'AWAITING',
+    PENDING = 'PENDING',
+    IN_PROGRESS = 'IN_PROGRESS',
+    COMPLETED = 'COMPLETED',
+    PARTIAL = 'PARTIAL',
+    CANCELED = 'CANCELED',
+    PROCESSING = 'PROCESSING',
+    ON_REFILL = 'ON_REFILL',
+    REFILLED = 'REFILLED',
+    FAIL = 'FAIL',
+    ERROR = 'ERROR',
+}

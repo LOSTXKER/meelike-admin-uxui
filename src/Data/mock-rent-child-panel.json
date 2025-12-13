@@ -1,0 +1,52 @@
+[
+    {
+        "childPanelId": "CPNEL-001",
+        "issuedDate": "2021-01-01",
+        "expiryDate": "2021-01-31",
+        "domainName": "www.domain.com",
+        "status": "10",
+        "adminUsername": "admin",
+        "adminPassword": "admin",
+        "renewable": true
+    },
+    {
+        "childPanelId": "CPNEL-002",
+        "issuedDate": null,
+        "expiryDate": null,
+        "domainName": "www.domain.com",
+        "status": "40",
+        "adminUsername": "admin",
+        "adminPassword": "admin",
+        "renewable": false
+    },
+    {
+        "childPanelId": "CPNEL-003",
+        "issuedDate": "2024-12-01",
+        "expiryDate": "2024-12-31",
+        "domainName": "www.domain.com",
+        "status": "20",
+        "adminUsername": "admin",
+        "adminPassword": "admin",
+        "renewable": false
+    },
+    {
+        "childPanelId": "CPNEL-004",
+        "issuedDate": "2024-10-01",
+        "expiryDate": "2024-10-31",
+        "domainName": "www.domain.com",
+        "status": "30",
+        "adminUsername": "admin",
+        "adminPassword": "admin",
+        "renewable": true
+    },
+    {
+        "childPanelId": "CPNEL-005",
+        "issuedDate": null,
+        "expiryDate": null,
+        "domainName": "www.domain.com",
+        "status": "40",
+        "adminUsername": "admin",
+        "adminPassword": "admin",
+        "renewable": false
+    }
+]

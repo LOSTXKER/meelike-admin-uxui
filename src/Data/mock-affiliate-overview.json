@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "userId": "user-1",
+        "user": {
+            "id": "user-1",
+            "name": "สมชาย ใจดี",
+            "email": "somchai@example.com"
+        },
+        "referralCode": "SOMCHAI2024",
+        "totalReferrals": 15,
+        "totalEarnings": "2500.00",
+        "pendingEarnings": "500.00",
+        "paidEarnings": "2000.00",
+        "createdAt": "2024-01-15T10:00:00.000Z"
+    },
+    {
+        "id": "2",
+        "userId": "user-2",
+        "user": {
+            "id": "user-2",
+            "name": "สมหญิง รักเรียน",
+            "email": "somying@example.com"
+        },
+        "referralCode": "SOMYING2024",
+        "totalReferrals": 8,
+        "totalEarnings": "1200.00",
+        "pendingEarnings": "200.00",
+        "paidEarnings": "1000.00",
+        "createdAt": "2024-02-20T14:30:00.000Z"
+    },
+    {
+        "id": "3",
+        "userId": "user-3",
+        "user": {
+            "id": "user-3",
+            "name": "ประสิทธิ์ เจริญ",
+            "email": "prasit@example.com"
+        },
+        "referralCode": "PRASIT2024",
+        "totalReferrals": 25,
+        "totalEarnings": "4500.00",
+        "pendingEarnings": "1000.00",
+        "paidEarnings": "3500.00",
+        "createdAt": "2024-03-10T09:15:00.000Z"
+    }
+]

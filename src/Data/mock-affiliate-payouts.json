@@ -1,0 +1,67 @@
+[
+    {
+        "id": "1",
+        "userId": "user-1",
+        "user": {
+            "id": "user-1",
+            "name": "สมชาย ใจดี",
+            "email": "somchai@example.com"
+        },
+        "amount": "500.00",
+        "status": "COMPLETED",
+        "paymentMethod": "bank_transfer",
+        "bankName": "กสิกรไทย",
+        "accountNumber": "xxx-x-xxxxx-x",
+        "paidAt": "2024-12-01T10:00:00.000Z",
+        "createdAt": "2024-11-28T10:00:00.000Z"
+    },
+    {
+        "id": "2",
+        "userId": "user-2",
+        "user": {
+            "id": "user-2",
+            "name": "สมหญิง รักเรียน",
+            "email": "somying@example.com"
+        },
+        "amount": "300.00",
+        "status": "PENDING",
+        "paymentMethod": "bank_transfer",
+        "bankName": "ไทยพาณิชย์",
+        "accountNumber": "xxx-x-xxxxx-x",
+        "paidAt": null,
+        "createdAt": "2024-12-10T14:30:00.000Z"
+    },
+    {
+        "id": "3",
+        "userId": "user-3",
+        "user": {
+            "id": "user-3",
+            "name": "ประสิทธิ์ เจริญ",
+            "email": "prasit@example.com"
+        },
+        "amount": "1000.00",
+        "status": "COMPLETED",
+        "paymentMethod": "bank_transfer",
+        "bankName": "กรุงเทพ",
+        "accountNumber": "xxx-x-xxxxx-x",
+        "paidAt": "2024-12-05T09:15:00.000Z",
+        "createdAt": "2024-12-02T09:15:00.000Z"
+    },
+    {
+        "id": "4",
+        "userId": "user-1",
+        "user": {
+            "id": "user-1",
+            "name": "สมชาย ใจดี",
+            "email": "somchai@example.com"
+        },
+        "amount": "750.00",
+        "status": "REJECTED",
+        "paymentMethod": "bank_transfer",
+        "bankName": "กสิกรไทย",
+        "accountNumber": "xxx-x-xxxxx-x",
+        "paidAt": null,
+        "rejectedReason": "ข้อมูลบัญชีไม่ถูกต้อง",
+        "createdAt": "2024-11-15T16:45:00.000Z"
+    }
+]

@@ -1,0 +1,35 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [staging]
+  pull_request:
+    branches: [staging]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20' # Use the Node.js version required by your project
+
+      - name: Install dependencies
+        run: yarn install
+
+      # - name: Build project
+      #   run: yarn build
+
+      - name: Deploy to Firebase
+        env:
+          FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-key.json
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
+        run: |
+          echo $FIREBASE_SERVICE_ACCOUNT_KEY > ${{ runner.temp }}/firebase-key.json
+          npx firebase-tools deploy --only hosting

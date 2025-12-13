@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "name": "Provider A",
+        "apiUrl": "https://provider-a.example.com/api/v2",
+        "isActive": true,
+        "balance": 1250.50
+    },
+    {
+        "id": "2",
+        "name": "Provider B",
+        "apiUrl": "https://provider-b.example.com/api/v1",
+        "isActive": true,
+        "balance": 890.25
+    },
+    {
+        "id": "3",
+        "name": "Provider C",
+        "apiUrl": "https://provider-c.example.com/api",
+        "isActive": true,
+        "balance": 2100.00
+    },
+    {
+        "id": "4",
+        "name": "Provider D",
+        "apiUrl": "https://provider-d.example.com/api/v3",
+        "isActive": false,
+        "balance": 0
+    }
+]

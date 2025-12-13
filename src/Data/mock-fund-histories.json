@@ -1,0 +1,102 @@
+[
+    {
+        "id": "1",
+        "fundCode": "FUND-2024-001",
+        "createdAt": "2024-12-10T10:30:00.000Z",
+        "user": {
+            "id": "user-1",
+            "name": "สมชาย ใจดี",
+            "email": "somchai@example.com"
+        },
+        "balanceBefore": "1000.00",
+        "balanceAfter": "2000.00",
+        "amount": "1000.00",
+        "method": "promptpay",
+        "mode": "manual",
+        "memo": "เติมเงินครั้งแรก",
+        "status": "SUCCESS",
+        "isSendToEtax": true,
+        "isSendETaxFailed": false,
+        "canDownloadTaxInvoice": true
+    },
+    {
+        "id": "2",
+        "fundCode": "FUND-2024-002",
+        "createdAt": "2024-12-11T14:20:00.000Z",
+        "user": {
+            "id": "user-2",
+            "name": "สมหญิง รักเรียน",
+            "email": "somying@example.com"
+        },
+        "balanceBefore": "500.00",
+        "balanceAfter": "1500.00",
+        "amount": "1000.00",
+        "method": "truemoney",
+        "mode": "auto",
+        "memo": "",
+        "status": "SUCCESS",
+        "isSendToEtax": true,
+        "isSendETaxFailed": false,
+        "canDownloadTaxInvoice": true
+    },
+    {
+        "id": "3",
+        "fundCode": "FUND-2024-003",
+        "createdAt": "2024-12-12T09:15:00.000Z",
+        "user": {
+            "id": "user-3",
+            "name": "ประสิทธิ์ เจริญ",
+            "email": "prasit@example.com"
+        },
+        "balanceBefore": "0.00",
+        "balanceAfter": "0.00",
+        "amount": "500.00",
+        "method": "credit_card",
+        "mode": "auto",
+        "memo": "",
+        "status": "PENDING",
+        "isSendToEtax": false,
+        "isSendETaxFailed": false,
+        "canDownloadTaxInvoice": false
+    },
+    {
+        "id": "4",
+        "fundCode": "FUND-2024-004",
+        "createdAt": "2024-12-13T16:45:00.000Z",
+        "user": {
+            "id": "user-4",
+            "name": "วิภา สุขใจ",
+            "email": "wipa@example.com"
+        },
+        "balanceBefore": "2500.00",
+        "balanceAfter": "5000.00",
+        "amount": "2500.00",
+        "method": "paysolutions",
+        "mode": "auto",
+        "memo": "เติมเงินเพิ่ม",
+        "status": "SUCCESS",
+        "isSendToEtax": true,
+        "isSendETaxFailed": true,
+        "canDownloadTaxInvoice": true
+    },
+    {
+        "id": "5",
+        "fundCode": "FUND-2024-005",
+        "createdAt": "2024-12-14T08:00:00.000Z",
+        "user": {
+            "id": "user-1",
+            "name": "สมชาย ใจดี",
+            "email": "somchai@example.com"
+        },
+        "balanceBefore": "2000.00",
+        "balanceAfter": "3000.00",
+        "amount": "1000.00",
+        "method": "promptpay",
+        "mode": "manual",
+        "memo": "",
+        "status": "SUCCESS",
+        "isSendToEtax": false,
+        "isSendETaxFailed": false,
+        "canDownloadTaxInvoice": false
+    }
+]

@@ -1,0 +1,67 @@
+[
+    {
+        "ticketId": "TICKET-001",
+        "title": "Topic Name",
+        "issuedDate": "2021-01-01",
+        "closedDate": null,
+        "status": "10",
+        "typeId": "1",
+        "type": {
+            "typeId": "1",
+            "name": "Place Order"
+        },
+        "reference": ["ORD-001", "ORD-002", "ORD-003"]
+    },
+    {
+        "ticketId": "TICKET-002",
+        "title": "Topic Name",
+        "issuedDate": "2021-01-01",
+        "closedDate": "2021-01-02",
+        "status": "20",
+        "typeId": "2",
+        "type": {
+            "typeId": "2",
+            "name": "Refill"
+        },
+        "reference": ["ORD-004", "ORD-005"]
+    },
+    {
+        "ticketId": "TICKET-003",
+        "title": "Topic Name",
+        "issuedDate": "2021-01-01",
+        "closedDate": "2021-01-02",
+        "status": "20",
+        "typeId": "2",
+        "type": {
+            "typeId": "2",
+            "name": "Refill"
+        },
+        "reference": ["ORD-010", "ORD-020"]
+    },
+    {
+        "ticketId": "TICKET-004",
+        "title": "Topic Name",
+        "issuedDate": "2021-01-01",
+        "closedDate": null,
+        "status": "10",
+        "typeId": "3",
+        "type": {
+            "typeId": "3",
+            "name": "Cancel"
+        },
+        "reference": []
+    },
+    {
+        "ticketId": "TICKET-005",
+        "title": "Topic Name",
+        "issuedDate": "2021-01-01",
+        "closedDate": null,
+        "status": "10",
+        "typeId": "5",
+        "type": {
+            "typeId": "5",
+            "name": "Child Panel"
+        },
+        "reference": []
+    }
+]

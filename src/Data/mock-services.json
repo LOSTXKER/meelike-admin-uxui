@@ -1,0 +1,170 @@
+[
+    {
+        "serviceId": "1",
+        "service": {
+            "name": "Facebook Like 1,000 | No Warranty",
+            "shortDescription": "No Drop, No Refill (Picture Post Only)",
+            "platform": "facebook",
+            "category": "like",
+            "categoryName": "Facebook Likes"
+        },
+        "ratePer1000": 35.2,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 1.25
+    },
+    {
+        "serviceId": "2",
+        "service": {
+            "name": "Instagram Following | Refillable ♻️",
+            "shortDescription": "Warranty for 30 days ♻️",
+            "platform": "instagram",
+            "category": "following",
+            "categoryName": "Instagram Followers"
+        },
+        "ratePer1000": 20.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.85
+    },
+    {
+        "serviceId": "3",
+        "service": {
+            "name": "Instagram Reel Views | Fast | ⚡⚡⚡",
+            "shortDescription": "Fast to proceed",
+            "platform": "instagram",
+            "category": "view",
+            "categoryName": "Instagram Views"
+        },
+        "ratePer1000": 40.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.85
+    },
+    {
+        "serviceId": "4",
+        "service": {
+            "name": "Shopee Live Views | Refillable ️♻️",
+            "shortDescription": "♻️♻️♻️",
+            "platform": "shopee",
+            "category": "view",
+            "categoryName": "Shopee Live View Amount"
+        },
+        "ratePer1000": 12.3,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.85
+    },
+    {
+        "serviceId": "5",
+        "service": {
+            "name": "TikTok Followers | Refillable ♻️ Tiktok Like | Speed 5K | ⚡⚡",
+            "shortDescription": "5K per day",
+            "platform": "tiktok",
+            "category": "following",
+            "categoryName": "TikTok Followers"
+        },
+        "ratePer1000": 15.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.85
+    },
+    {
+        "serviceId": "6",
+        "service": {
+            "name": "Twitter (X) Retweet [50K] (1H - 5K/day)",
+            "shortDescription": "1H - 5K/day",
+            "platform": "twitter",
+            "category": "retweet",
+            "categoryName": "Twitter Retweet"
+        },
+        "ratePer1000": 10.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 1.35
+    },
+    {
+        "serviceId": "7",
+        "service": {
+            "name": "Facebook Like 1,000 | No Warranty",
+            "shortDescription": "No Drop, No Refill (Picture Post Only)",
+            "platform": "facebook",
+            "category": "like",
+            "categoryName": "Facebook Likes"
+        },
+        "ratePer1000": 35.2,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 1.35
+    },
+    {
+        "serviceId": "8",
+        "service": {
+            "name": "Instagram Following | Refillable ♻️",
+            "shortDescription": "Warranty for 30 days ♻️",
+            "platform": "instagram",
+            "category": "following",
+            "categoryName": "Instagram Followers"
+        },
+        "ratePer1000": 20.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 1.35
+    },
+    {
+        "serviceId": "9",
+        "service": {
+            "name": "Instagram Reel Views | Fast | ⚡⚡⚡",
+            "shortDescription": "Fast to proceed",
+            "platform": "instagram",
+            "category": "view",
+            "categoryName": "Instagram Views"
+        },
+        "ratePer1000": 40.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 1.35
+    },
+    {
+        "serviceId": "10",
+        "service": {
+            "name": "Shopee Live Views | Refillable ️♻️",
+            "shortDescription": "♻️♻️♻️",
+            "platform": "shopee",
+            "category": "view",
+            "categoryName": "Shopee Live View Amount"
+        },
+        "ratePer1000": 12.3,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.24
+    },
+    {
+        "serviceId": "11",
+        "service": {
+            "name": "TikTok Followers | Refillable ♻️ Tiktok Like | Speed 5K | ⚡⚡",
+            "shortDescription": "5K per day",
+            "platform": "tiktok",
+            "category": "following",
+            "categoryName": "TikTok Followers"
+        },
+        "ratePer1000": 15.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.24
+    },
+    {
+        "serviceId": "12",
+        "service": {
+            "name": "Twitter (X) Retweet [50K] (1H - 5K/day)",
+            "shortDescription": "1H - 5K/day",
+            "platform": "twitter",
+            "category": "retweet",
+            "categoryName": "Twitter Retweet"
+        },
+        "ratePer1000": 10.5,
+        "minQuantity": 1000,
+        "maxQuantity": 1000000,
+        "averageTimeHrs": 0.24
+    }
+]

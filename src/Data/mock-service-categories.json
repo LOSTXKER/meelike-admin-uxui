@@ -1,0 +1,66 @@
+[
+    {
+        "id": "1",
+        "name": "Instagram Likes",
+        "iconUrl": "/assets/meelike/social-media/instagram.svg",
+        "platform": "instagram",
+        "type": "like",
+        "isActive": true
+    },
+    {
+        "id": "2",
+        "name": "Facebook Likes",
+        "iconUrl": "/assets/meelike/social-media/facebook.svg",
+        "platform": "facebook",
+        "type": "like",
+        "isActive": true
+    },
+    {
+        "id": "3",
+        "name": "TikTok Views",
+        "iconUrl": "/assets/meelike/social-media/tiktok.svg",
+        "platform": "tiktok",
+        "type": "view",
+        "isActive": true
+    },
+    {
+        "id": "4",
+        "name": "YouTube Views",
+        "iconUrl": "/assets/meelike/social-media/youtube.svg",
+        "platform": "youtube",
+        "type": "view",
+        "isActive": true
+    },
+    {
+        "id": "5",
+        "name": "Twitter Retweets",
+        "iconUrl": "/assets/meelike/social-media/twitter.svg",
+        "platform": "twitter",
+        "type": "retweet",
+        "isActive": true
+    },
+    {
+        "id": "6",
+        "name": "Instagram Followers",
+        "iconUrl": "/assets/meelike/social-media/instagram.svg",
+        "platform": "instagram",
+        "type": "following",
+        "isActive": true
+    },
+    {
+        "id": "7",
+        "name": "Facebook Views",
+        "iconUrl": "/assets/meelike/social-media/facebook.svg",
+        "platform": "facebook",
+        "type": "view",
+        "isActive": true
+    },
+    {
+        "id": "8",
+        "name": "TikTok Likes",
+        "iconUrl": "/assets/meelike/social-media/tiktok.svg",
+        "platform": "tiktok",
+        "type": "like",
+        "isActive": true
+    }
+]
