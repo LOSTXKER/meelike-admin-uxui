@@ -9,6 +9,14 @@ let failedQueue: (() => void)[] = [];
 export const setupAxios = (axios: Axios) => {
     axios.interceptors.request.use(
         (config) => {
+            // 🚫 Block API calls in mock mode - UXUI development only
+            if (import.meta.env.VITE_USE_MOCK_DATA === 'true') {
+                console.warn('🚫 [MOCK MODE] API call blocked:', config.url);
+                console.warn('   ➡️ This project is for UXUI development only.');
+                console.warn('   ➡️ All data is from mock files.');
+                return Promise.reject(new Error('API calls are disabled in mock mode'));
+            }
+
             config.baseURL = import.meta.env.VITE_API_ENDPOINT;
             config.headers.Accept = 'application/json';
             config.headers['Accept-Language'] = 'th';
