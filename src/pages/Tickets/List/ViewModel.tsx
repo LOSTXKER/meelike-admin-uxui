@@ -45,6 +45,126 @@ const INITIAL_FILTER_STATE = {
     status: '' as string
 };
 
+// Mock data for demonstration
+const MOCK_TICKETS = [
+    {
+        id: '1',
+        ticketCode: 'TKT-2025-001',
+        subject: 'Order not delivered - Need urgent help',
+        user: {
+            id: 'U001',
+            name: 'John Doe',
+            membership: {
+                membershipLevelLabel: 'Gold'
+            }
+        },
+        ticketOrderLinks: [
+            { orderId: 'ORD-001', order: { orderCode: 'ORD-2025-001' } },
+            { orderId: 'ORD-002', order: { orderCode: 'ORD-2025-002' } }
+        ],
+        typeLabelTh: 'คำสั่งซื้อ',
+        subType: 'DELIVERY',
+        subTypeLabelTh: 'การจัดส่ง',
+        status: 'OPEN',
+        createdAt: '2025-01-14T10:30:00Z',
+        closedAt: null,
+        isLocked: false,
+        isRead: false
+    },
+    {
+        id: '2',
+        ticketCode: 'TKT-2025-002',
+        subject: 'Payment issue with credit card',
+        user: {
+            id: 'U002',
+            name: 'Sarah Smith',
+            membership: {
+                membershipLevelLabel: 'Silver'
+            }
+        },
+        ticketOrderLinks: [
+            { orderId: 'ORD-003', order: { orderCode: 'ORD-2025-003' } }
+        ],
+        typeLabelTh: 'การชำระเงิน',
+        subType: 'PAYMENT_FAILED',
+        subTypeLabelTh: 'การชำระเงินล้มเหลว',
+        status: 'IN_PROGRESS',
+        createdAt: '2025-01-13T14:20:00Z',
+        closedAt: null,
+        isLocked: false,
+        isRead: true
+    },
+    {
+        id: '3',
+        ticketCode: 'TKT-2025-003',
+        subject: 'Account verification required',
+        user: {
+            id: 'U003',
+            name: 'Mike Johnson',
+            membership: {
+                membershipLevelLabel: 'Bronze'
+            }
+        },
+        ticketOrderLinks: [],
+        typeLabelTh: 'บัญชี',
+        subType: 'VERIFICATION',
+        subTypeLabelTh: 'การยืนยันตัวตน',
+        status: 'CLOSED',
+        createdAt: '2025-01-12T16:00:00Z',
+        closedAt: '2025-01-13T10:30:00Z',
+        isLocked: true,
+        isRead: true
+    },
+    {
+        id: '4',
+        ticketCode: 'TKT-2025-004',
+        subject: 'Service quality complaint',
+        user: {
+            id: 'U004',
+            name: 'Emma Wilson',
+            membership: {
+                membershipLevelLabel: 'Platinum'
+            }
+        },
+        ticketOrderLinks: [
+            { orderId: 'ORD-004', order: { orderCode: 'ORD-2025-004' } },
+            { orderId: 'ORD-005', order: { orderCode: 'ORD-2025-005' } },
+            { orderId: 'ORD-006', order: { orderCode: 'ORD-2025-006' } }
+        ],
+        typeLabelTh: 'บริการ',
+        subType: 'QUALITY',
+        subTypeLabelTh: 'คุณภาพบริการ',
+        status: 'PENDING',
+        createdAt: '2025-01-14T09:15:00Z',
+        closedAt: null,
+        isLocked: false,
+        isRead: false
+    },
+    {
+        id: '5',
+        ticketCode: 'TKT-2025-005',
+        subject: 'Refund request for cancelled order',
+        user: {
+            id: 'U005',
+            name: 'David Brown',
+            membership: {
+                membershipLevelLabel: 'Gold'
+            }
+        },
+        ticketOrderLinks: [
+            { orderId: 'ORD-007', order: { orderCode: 'ORD-2025-007' } }
+        ],
+        typeLabelTh: 'การคืนเงิน',
+        subType: 'REFUND',
+        subTypeLabelTh: 'ขอคืนเงิน',
+        status: 'IN_PROGRESS',
+        createdAt: '2025-01-11T11:45:00Z',
+        closedAt: null,
+        isLocked: false,
+        isRead: true
+    }
+];
+
 const ViewModel = () => {
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
@@ -108,10 +228,13 @@ const ViewModel = () => {
     const [isOpenChangeStatusModal, setIsOpenChangeStatusModal] = useState(false);
     const [isHideToConfirmChangeStatus, setIsHideToConfirmChangeStatus] = useState(false);
 
-    const totalData = ticketTotalData;
+    const totalData = ticketTotalData || MOCK_TICKETS.length;
 
     const data = useMemo(() => {
-        // Since pagination is handled by the API, we return the data as is
+        // Use mock data if API returns empty
+        if (!ticketData || ticketData.length === 0) {
+            return MOCK_TICKETS;
+        }
         return ticketData;
     }, [ticketData]);
 

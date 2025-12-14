@@ -20,14 +20,10 @@ export const paths = {
     provider: {
         list: '/provider',
     },
-    service: {
-        category: {
-            list: '/service/category',
-        },
-    },
     services: {
         list: '/services',
         orderingPosition: '/services/ordering-position',
+        management: '/services/management',
     },
     orders: {
         list: '/orders',

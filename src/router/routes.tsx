@@ -9,9 +9,9 @@ import ForgotPassword from '@/pages/Auth/ForgotPassword/View';
 import ChangePassword from '@/pages/Auth/ChangePassword/View';
 import AdminManagementListView from '@/pages/AdminManagement/List/View';
 import ProviderManagementView from '@/pages/Provider/List/View';
-import ServiceCategoryView from '@/pages/ServiceCategory/List/View';
 import ServicesListView from '@/pages/Services/List/View';
 import ServiceOrderingPositionView from '@/pages/Services/OrderingPosition/View';
+import ServicesManagementView from '@/pages/Services/Management/View';
 import OrdersListView from '@/pages/Orders/List/View';
 import OrderExportView from '@/pages/Orders/Export/View';
 import UsersListView from '@/pages/Users/List/View';
@@ -73,14 +73,6 @@ const routes = [
         )
     },
     {
-        path: paths.service.category.list,
-        element: (
-            <ProtectedRoute>
-                <ServiceCategoryView />
-            </ProtectedRoute>
-        )
-    },
-    {
         path: paths.services.list,
         element: (
             <ProtectedRoute>
@@ -93,6 +85,14 @@ const routes = [
         element: (
             <ProtectedRoute>
                 <ServiceOrderingPositionView />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: paths.services.management,
+        element: (
+            <ProtectedRoute>
+                <ServicesManagementView />
             </ProtectedRoute>
         )
     },

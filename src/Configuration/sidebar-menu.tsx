@@ -59,13 +59,8 @@ export const SidebarMenu: any[] = [
     'บริการ',
     {
         icon: <IconListCheck className='group-hover:!text-gray-600 shrink-0' />,
-        path: paths.services.list,
-        title: 'บริการทั้งหมด'
-    },
-    {
-        icon: <IconShieldStar className='group-hover:!text-gray-600 shrink-0' />,
-        path: paths.service.category.list,
-        title: 'หมวดหมู่บริการ'
+        path: paths.services.management,
+        title: 'จัดการบริการ'
     },
     {
         icon: <IconCoffee className='group-hover:!text-gray-600 shrink-0' />,

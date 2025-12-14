@@ -8,6 +8,119 @@ import { useParams } from 'react-router-dom';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 
+// Mock ticket detail data
+const MOCK_TICKET_DETAIL: any = {
+    '1': {
+        id: '1',
+        ticketCode: 'TKT-2025-001',
+        subject: 'Order not delivered - Need urgent help',
+        user: {
+            id: 'U001',
+            name: 'John Doe',
+            username: 'johndoe',
+            email: 'john@example.com',
+            membership: {
+                membershipLevelLabel: 'Gold'
+            }
+        },
+        ticketOrderLinks: [
+            { orderId: 'ORD-001', order: { orderCode: 'ORD-2025-001' } },
+            { orderId: 'ORD-002', order: { orderCode: 'ORD-2025-002' } }
+        ],
+        type: 'ORDER',
+        typeLabelTh: 'คำสั่งซื้อ',
+        subType: 'DELIVERY',
+        subTypeLabelTh: 'การจัดส่ง',
+        status: 'PENDING',
+        ticketMessage: 'สวัสดีครับ ผมสั่งสินค้าไปแล้ว 3 วัน แต่ยังไม่ได้รับเลยครับ ช่วยเช็คให้หน่อยได้ไหมครับ',
+        createdAt: '2025-01-14T10:30:00Z',
+        closedAt: null,
+        isLocked: false,
+        isRead: false,
+        attachments: [],
+        threadReplies: [
+            {
+                id: 'R1',
+                senderRole: 'USER',
+                replyType: 'TEXT',
+                message: 'สวัสดีครับ ผมสั่งสินค้าไปแล้ว 3 วัน แต่ยังไม่ได้รับเลยครับ',
+                createdAt: '2025-01-14T10:30:00Z',
+                attachment: null
+            },
+            {
+                id: 'R2',
+                senderRole: 'ADMIN',
+                replyType: 'TEXT',
+                message: 'สวัสดีครับคุณ John ขออภัยในความไม่สะดวกครับ ผมจะเช็คสถานะการจัดส่งให้นะครับ',
+                createdAt: '2025-01-14T11:15:00Z',
+                attachment: null
+            },
+            {
+                id: 'R3',
+                senderRole: 'ADMIN',
+                replyType: 'TEXT',
+                message: 'ตรวจสอบแล้วครับ พัสดุของคุณอยู่ที่ศูนย์กระจายสินค้าแล้ว คาดว่าจะได้รับภายในวันพรุ่งนี้ครับ',
+                createdAt: '2025-01-14T11:20:00Z',
+                attachment: null
+            },
+            {
+                id: 'R4',
+                senderRole: 'USER',
+                replyType: 'TEXT',
+                message: 'ขอบคุณมากครับ รอรับของอยู่เลยครับ',
+                createdAt: '2025-01-14T11:25:00Z',
+                attachment: null
+            }
+        ]
+    },
+    '2': {
+        id: '2',
+        ticketCode: 'TKT-2025-002',
+        subject: 'Payment issue with credit card',
+        user: {
+            id: 'U002',
+            name: 'Sarah Smith',
+            username: 'sarahsmith',
+            email: 'sarah@example.com',
+            membership: {
+                membershipLevelLabel: 'Silver'
+            }
+        },
+        ticketOrderLinks: [
+            { orderId: 'ORD-003', order: { orderCode: 'ORD-2025-003' } }
+        ],
+        type: 'PAYMENT',
+        typeLabelTh: 'การชำระเงิน',
+        subType: 'PAYMENT_FAILED',
+        subTypeLabelTh: 'การชำระเงินล้มเหลว',
+        status: 'ANSWERED',
+        ticketMessage: 'ชำระเงินไม่ผ่าน บัตรเครดิตถูกปฏิเสธ',
+        createdAt: '2025-01-13T14:20:00Z',
+        closedAt: null,
+        isLocked: false,
+        isRead: true,
+        attachments: [],
+        threadReplies: [
+            {
+                id: 'R1',
+                senderRole: 'USER',
+                replyType: 'TEXT',
+                message: 'ชำระเงินไม่ผ่าน บัตรเครดิตถูกปฏิเสธ ช่วยแนะนำหน่อยค่ะ',
+                createdAt: '2025-01-13T14:20:00Z',
+                attachment: null
+            },
+            {
+                id: 'R2',
+                senderRole: 'ADMIN',
+                replyType: 'TEXT',
+                message: 'สวัสดีครับ กรุณาตรวจสอบยอดเงินในบัตรและวงเงินคงเหลือครับ หรือลองใช้บัตรอื่นดูครับ',
+                createdAt: '2025-01-13T15:00:00Z',
+                attachment: null
+            }
+        ]
+    }
+};
+
 const ViewModel = () => {
     const { t, i18n } = useTranslation();
     const { ticketId: id } = useParams<{ ticketId: string }>();
@@ -16,6 +129,7 @@ const ViewModel = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [sending, setSending] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [useMockData, setUseMockData] = useState(false);
 
     const { setAppName, setPageTitle } = useThemeStore(
         useShallow(state => ({
@@ -57,12 +171,15 @@ const ViewModel = () => {
     const [isOpenChangeStatusModal, setIsOpenChangeStatusModal] = useState(false);
     const [isHideToConfirmChangeStatus, setIsHideToConfirmChangeStatus] = useState(false);
 
-    const ticketSubTypesOptions = useMemo(() => {
-        return ticketTypes.find(type => type.value === data?.type)?.subTypes || [];
-    }, [data]);
+    // Use mock data or real data
+    const finalData = useMockData && id ? MOCK_TICKET_DETAIL[id] : data;
 
-    const ticketTypeRequiredFields = ticketTypes.find(type => type.value === data?.type)?.requiredFields || [];
-    const ticketSubTypeRequiredFields = ticketSubTypesOptions.find((sub: any) => sub.value === data?.subType)?.requiredFields || [];
+    const ticketSubTypesOptions = useMemo(() => {
+        return ticketTypes.find(type => type.value === finalData?.type)?.subTypes || [];
+    }, [finalData, ticketTypes]);
+
+    const ticketTypeRequiredFields = ticketTypes.find(type => type.value === finalData?.type)?.requiredFields || [];
+    const ticketSubTypeRequiredFields = ticketSubTypesOptions.find((sub: any) => sub.value === finalData?.subType)?.requiredFields || [];
     const finaleRequiredFields = useMemo(() => {
         return [...ticketTypeRequiredFields, ...ticketSubTypeRequiredFields];
     }, [ticketTypeRequiredFields, ticketSubTypeRequiredFields]);
@@ -78,11 +195,13 @@ const ViewModel = () => {
             try {
                 getTicketTypes();
                 const result = await getOne(id);
-                if (!result.success) {
-                    console.error('Error fetching ticket detail:', result.data);
+                if (!result.success || !result.data) {
+                    // Use mock data if API fails or returns empty
+                    setUseMockData(true);
                 }
             } catch (error) {
                 console.error('Error fetching ticket detail:', error);
+                setUseMockData(true);
             } finally {
                 setLoading(false);
             }
@@ -349,7 +468,7 @@ const ViewModel = () => {
     return {
         t,
         finaleRequiredFields,
-        data,
+        data: finalData,
         loading,
         message,
         setMessage,

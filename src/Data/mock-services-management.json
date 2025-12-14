@@ -1,0 +1,248 @@
+[
+  {
+    "id": "cat-1",
+    "name": "Shopee ไลฟ์สด (ประเทศไทยเท่านั้น 🇹🇭) | สูงสุด 50K/Live 🟢🟢 (เพิ่ม PCU ) 🔴 Server 1",
+    "iconUrl": "/assets/meelike/social-media/shopee.svg",
+    "platform": "shopee",
+    "isCollapsed": false,
+    "services": [
+      {
+        "id": "svc-1",
+        "externalId": "462",
+        "name": "🔴 Shopee Live Stream Views (ประเทศไทยเท่านั้น🇹🇭) 🔴 Server 1 | ยอดวิว 5 นาที",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2699",
+        "rate": 67.42,
+        "rateUsd": 44.9414,
+        "min": 100,
+        "max": 40000,
+        "isEnabled": false,
+        "hasRefill": true,
+        "cost": 57,
+        "priceMode": "fixed"
+      },
+      {
+        "id": "svc-2",
+        "externalId": "463",
+        "name": "🔴 Shopee Live Stream Views (ประเทศไทยเท่านั้น🇹🇭) 🔴 Server 1 | ยอดวิว 15 นาที",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2701",
+        "rate": 77.05,
+        "rateUsd": 51.3616,
+        "min": 10,
+        "max": 100000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 66,
+        "priceMode": "percent"
+      }
+    ]
+  },
+  {
+    "id": "cat-2",
+    "name": "Shopee ไลฟ์สด (ประเทศไทยเท่านั้น 🇹🇭) | สูงสุด 50K/Live 🟢🟢 🔴 Server 3",
+    "iconUrl": "/assets/meelike/social-media/shopee.svg",
+    "platform": "shopee",
+    "isCollapsed": false,
+    "services": [
+      {
+        "id": "svc-3",
+        "externalId": "464",
+        "name": "Shopee Live Stream Views (ประเทศไทยเท่านั้น🇹🇭) | ยอดวิวค้าง 15 นาที | ⭕ Server 3 | มีประกัน | เพิ่ม 3 ค่า",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2728",
+        "rate": 118.45,
+        "rateUsd": 78.9634,
+        "min": 100,
+        "max": 50000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 101,
+        "priceMode": "custom"
+      }
+    ]
+  },
+  {
+    "id": "cat-3",
+    "name": "Zepeto [คนไทย] | เพิ่มผู้ติดตาม/ถูกใจ/วิว/บันทึก",
+    "iconUrl": "/assets/meelike/social-media/zepeto.svg",
+    "platform": "zepeto",
+    "isCollapsed": false,
+    "services": [
+      {
+        "id": "svc-4",
+        "externalId": "465",
+        "name": "Zepeto เพิ่มวิว | 🚀 ยอดตตดน้อย | 🚀 100K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2787",
+        "rate": 3.82,
+        "rateUsd": 2.5413,
+        "min": 10,
+        "max": 100000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 2,
+        "priceMode": "custom"
+      },
+      {
+        "id": "svc-5",
+        "externalId": "466",
+        "name": "Zepeto เพิ่มถูกใจ | 🚀 ยอดตลดน้อย | 🚀 100K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "4013",
+        "rate": 66.68,
+        "rateUsd": 44.4513,
+        "min": 10,
+        "max": 10000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 57,
+        "priceMode": "fixed"
+      },
+      {
+        "id": "svc-6",
+        "externalId": "467",
+        "name": "Zepeto เพิ่มผู้ติดตาม | 🚀 ยอดตลดน้อย | 🚀 100K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด Default",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2799",
+        "rate": 66.68,
+        "rateUsd": 44.4513,
+        "min": 20,
+        "max": 10000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 57,
+        "priceMode": "percent"
+      },
+      {
+        "id": "svc-7",
+        "externalId": "468",
+        "name": "Zepeto เพิ่มบันทึก | 🚀 ยอดตลดน้อย | 🚀 100K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2790",
+        "rate": 66.68,
+        "rateUsd": 44.4513,
+        "min": 10,
+        "max": 10000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 57,
+        "priceMode": "percent"
+      }
+    ]
+  },
+  {
+    "id": "cat-4",
+    "name": "Joylada [คนไทย] | เพิ่มผู้ติดตาม/ถูกใจ",
+    "iconUrl": "/assets/meelike/social-media/joylada.svg",
+    "platform": "joylada",
+    "isCollapsed": false,
+    "services": [
+      {
+        "id": "svc-8",
+        "externalId": "469",
+        "name": "Joylada เพิ่มผู้ติดตาม | 🚀 ยอดตลดน้อย | 🚀 50K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2693",
+        "rate": 47.63,
+        "rateUsd": 31.7514,
+        "min": 20,
+        "max": 5000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 40,
+        "priceMode": "percent"
+      },
+      {
+        "id": "svc-9",
+        "externalId": "470",
+        "name": "Joylada เพิ่มถูกใจ | 🚀 ยอดตลดน้อย | 🚀 50K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "2694",
+        "rate": 46.68,
+        "rateUsd": 31.7514,
+        "min": 10,
+        "max": 5000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 40,
+        "priceMode": "percent"
+      }
+    ]
+  },
+  {
+    "id": "cat-5",
+    "name": "Instagram เพิ่มผู้ติดตาม | Real & Active",
+    "iconUrl": "/assets/meelike/social-media/instagram.svg",
+    "platform": "instagram",
+    "isCollapsed": false,
+    "services": [
+      {
+        "id": "svc-10",
+        "externalId": "501",
+        "name": "Instagram Followers Real | 🚀 10K/Day | ✅ ประกัน 30 วัน & ✅ มีปุ่มเติมยอด",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "3001",
+        "rate": 55.00,
+        "rateUsd": 36.6667,
+        "min": 100,
+        "max": 50000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 46,
+        "priceMode": "percent"
+      },
+      {
+        "id": "svc-11",
+        "externalId": "502",
+        "name": "Instagram Followers | ไม่มีประกัน | ราคาถูก",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "3002",
+        "rate": 25.00,
+        "rateUsd": 16.6667,
+        "min": 50,
+        "max": 100000,
+        "isEnabled": true,
+        "hasRefill": false,
+        "cost": 20,
+        "priceMode": "percent"
+      }
+    ]
+  },
+  {
+    "id": "cat-6",
+    "name": "TikTok เพิ่มผู้ติดตาม | Premium",
+    "iconUrl": "/assets/meelike/social-media/tiktok.svg",
+    "platform": "tiktok",
+    "isCollapsed": false,
+    "services": [
+      {
+        "id": "svc-12",
+        "externalId": "601",
+        "name": "TikTok Followers Premium | 🚀 20K/Day | ✅ ประกัน 60 วัน",
+        "type": "Default",
+        "provider": "smmdragon.net",
+        "providerId": "4001",
+        "rate": 35.50,
+        "rateUsd": 23.6667,
+        "min": 100,
+        "max": 100000,
+        "isEnabled": true,
+        "hasRefill": true,
+        "cost": 29,
+        "priceMode": "percent"
+      }
+    ]
+  }
+]

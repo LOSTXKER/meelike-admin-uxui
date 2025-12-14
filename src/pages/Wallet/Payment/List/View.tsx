@@ -120,7 +120,7 @@ const WalletPaymentListView: FC = () => {
                             </Dropdown>
                         </div>
                         <Link to={paths.wallet.paymentExport}>
-                            <button type='button' className='btn bg-meelike-primary text-white hover:bg-meelike-primary/90'>
+                            <button type='button' className='btn bg-meelike-primary text-meelike-dark hover:bg-meelike-primary/90'>
                                 <IconDownload className='w-4 h-4' />
                                 <span>Export</span>
                             </button>

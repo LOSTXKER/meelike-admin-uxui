@@ -56,19 +56,27 @@ const ServiceFormView: FC<Props> = props => {
                                 leaveFrom='opacity-100 scale-100'
                                 leaveTo='opacity-0 scale-95'
                             >
-                                <DialogPanel as='div' className='panel my-8 w-full max-w-5xl rounded-lg border-0 p-0 text-black dark:text-white-dark bg-[#F7FAFC] relative font-kanit'>
-                                    <div className='absolute right-0 flex items-center justify-end px-5 py-3 dark:bg-[#121c2c]'>
-                                        <button type='button' className='text-black hover:bg-gray-200 transition-all rounded-md p-2' onClick={onClose}>
-                                            <IconX />
+                                <DialogPanel as='div' className='panel my-8 w-full max-w-2xl rounded-2xl border-0 p-0 text-black dark:text-white-dark bg-white/95 backdrop-blur-xl relative font-kanit shadow-2xl'>
+                                    {/* Apple-style Header */}
+                                    <div className='flex items-center justify-between px-6 py-4 border-b border-black/5'>
+                                        <h5 className='text-xl font-semibold text-gray-900'>
+                                            {formType === 'create' ? 'เพิ่มบริการ' : formType === 'edit' ? 'แก้ไขบริการ' : 'ดูรายละเอียดบริการ'}
+                                        </h5>
+                                        <button
+                                            type='button'
+                                            className='p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all rounded-lg'
+                                            onClick={onClose}
+                                        >
+                                            <IconX className='w-5 h-5' />
                                         </button>
                                     </div>
-                                    <div className='p-5 pt-0'>
-                                        <h5 className='pt-5 text-xl font-bold'>{formType === 'create' ? 'เพิ่มบริการ' : formType === 'edit' ? 'แก้ไขบริการ' : 'ดูรายละเอียดบริการ'}</h5>
-                                    </div>
 
-                                    <div className='grid grid-cols-12 gap-4 p-5 items-center text-sm'>
+                                    <div className='grid grid-cols-12 gap-4 p-6 items-center text-sm max-h-[70vh] overflow-y-auto'>
                                         <div className='col-span-12'>
-                                            <div className='panel shadow-lg'>
+                                            <div className='bg-white rounded-xl border border-black/5 shadow-sm overflow-hidden'>
+                                                <div className='px-4 py-3 bg-gray-50/80 border-b border-black/5'>
+                                                    <h6 className='text-sm font-semibold text-gray-800'>เลือกผู้ให้บริการ</h6>
+                                                </div>
                                                 <div className='grid grid-cols-12 gap-4 p-5 items-center'>
                                                     <div className='col-span-12'>
                                                         <label htmlFor='providerId' className='text-clink-input-label'>
@@ -237,13 +245,16 @@ const ServiceFormView: FC<Props> = props => {
 
                                         <div className='col-span-12'>
                                             <div
-                                                className={clsx('panel relative shadow-lg', {
+                                                className={clsx('bg-white rounded-xl border border-black/5 shadow-sm overflow-hidden relative', {
                                                     'pointer-events-none': !formState.providerServiceId || formState.externalServiceId === ''
                                                 })}
                                             >
+                                                <div className='px-4 py-3 bg-gray-50/80 border-b border-black/5'>
+                                                    <h6 className='text-sm font-semibold text-gray-800'>รายละเอียดบริการ</h6>
+                                                </div>
                                                 {formState.providerServiceId === 0 && formState.externalServiceId === '' && (
-                                                    <div className='absolute top-0 left-0 w-full h-full bg-black/75 rounded-lg flex items-center justify-center z-10'>
-                                                        <p className='text-white font-semibold text-lg'>กรุณาเลือกผู้ให้บริการและบริการ</p>
+                                                    <div className='absolute inset-0 bg-gray-900/70 backdrop-blur-sm rounded-xl flex items-center justify-center z-10'>
+                                                        <p className='text-white font-medium text-base'>กรุณาเลือกผู้ให้บริการและบริการ</p>
                                                     </div>
                                                 )}
 
@@ -364,7 +375,7 @@ const ServiceFormView: FC<Props> = props => {
                                                                 <button
                                                                     type='button'
                                                                     className={`my-3 w-full flex items-center font-semibold ${formState.syncRateEnabled ? '!text-primary' : '!text-gray-600'}`}
-                                                                    onClick={() => {}}
+                                                                    onClick={() => { }}
                                                                 >
                                                                     <div className='flex flex-row items-center gap-x-3 text-sm'>
                                                                         <label className='w-7 h-4 relative cursor-pointer'>
@@ -380,48 +391,48 @@ const ServiceFormView: FC<Props> = props => {
                                                                     </div>
                                                                 </button>
 
-                                                                <div className='flex flex-row items-center mb-3'>
-                                                                    <div className='w-full'>
-                                                                        <label htmlFor='' className='font-normal'>
+                                                                <div className='grid grid-cols-3 gap-0 items-end mb-3'>
+                                                                    <div>
+                                                                        <label htmlFor='' className='font-normal block mb-1'>
                                                                             อัตราเรทดั้งเดิม
                                                                         </label>
                                                                         <input
                                                                             id='originalRate'
                                                                             type='number'
                                                                             placeholder={''}
-                                                                            className={clsx('form-input bg-gray-50 text-gray-500 w-full rounded-r-none', {})}
+                                                                            className='form-input bg-gray-50 text-gray-500 w-full rounded-r-none'
                                                                             value={selectedServiceProviderService?.rate ?? 0}
                                                                             autoComplete='off'
                                                                             disabled
-                                                                            onChange={e => {}}
+                                                                            onChange={e => { }}
                                                                         />
                                                                     </div>
-                                                                    <div className='w-full'>
-                                                                        <label>&nbsp;</label>
+                                                                    <div>
+                                                                        <label className='block mb-1'>&nbsp;</label>
                                                                         <input
                                                                             id='approximatelySymbol'
                                                                             type='text'
                                                                             placeholder={''}
-                                                                            className={clsx('form-input bg-gray-50 text-gray-500 w-full rounded-none text-center', {})}
+                                                                            className='form-input bg-gray-50 text-gray-500 w-full rounded-none text-center'
                                                                             value={'≈'}
                                                                             autoComplete='off'
                                                                             disabled
-                                                                            onChange={e => {}}
+                                                                            onChange={e => { }}
                                                                         />
                                                                     </div>
-                                                                    <div className='w-full'>
-                                                                        <label htmlFor='' className='font-normal'>
+                                                                    <div>
+                                                                        <label htmlFor='' className='font-normal block mb-1'>
                                                                             ราคาโดยประมาณ (THB)
                                                                         </label>
                                                                         <input
                                                                             id='approximatelyPrice'
                                                                             type='number'
                                                                             placeholder={''}
-                                                                            className={clsx('form-input bg-gray-50 text-gray-500 w-full rounded-l-none', {})}
+                                                                            className='form-input bg-gray-50 text-gray-500 w-full rounded-l-none'
                                                                             value={selectedServiceProviderService?.convertedAmount ?? 0}
                                                                             autoComplete='off'
                                                                             disabled
-                                                                            onChange={e => {}}
+                                                                            onChange={e => { }}
                                                                         />
                                                                     </div>
                                                                 </div>
@@ -429,7 +440,7 @@ const ServiceFormView: FC<Props> = props => {
                                                                 <button
                                                                     type='button'
                                                                     className={`my-3 w-full flex items-center font-semibold ${formState.finalizePriceWithCost ? '!text-primary' : '!text-gray-600'}`}
-                                                                    onClick={() => {}}
+                                                                    onClick={() => { }}
                                                                 >
                                                                     <div className='flex flex-row items-center gap-x-3 text-sm'>
                                                                         <label className='w-7 h-4 relative cursor-pointer'>
@@ -453,9 +464,9 @@ const ServiceFormView: FC<Props> = props => {
                                                                     </div>
                                                                 </button>
 
-                                                                <div className='flex flex-row items-start'>
-                                                                    <div className='w-full'>
-                                                                        <label htmlFor='' className='font-normal'>
+                                                                <div className='grid grid-cols-4 gap-0 items-end'>
+                                                                    <div>
+                                                                        <label htmlFor='' className='font-normal block mb-1'>
                                                                             Fixed Price
                                                                         </label>
                                                                         <input
@@ -473,8 +484,8 @@ const ServiceFormView: FC<Props> = props => {
                                                                         />
                                                                         {formErrors['fixedPrice'] && <span className='text-red-500 text-sm'>{formErrors['fixedPrice']}</span>}
                                                                     </div>
-                                                                    <div className='w-full'>
-                                                                        <label htmlFor='' className='font-normal'>
+                                                                    <div>
+                                                                        <label htmlFor='' className='font-normal block mb-1'>
                                                                             เปอร์เซ็นต์
                                                                         </label>
                                                                         <input
@@ -494,32 +505,32 @@ const ServiceFormView: FC<Props> = props => {
                                                                         />
                                                                         {formErrors['ratePercent'] && <span className='text-red-500 text-sm'>{formErrors['ratePercent']}</span>}
                                                                     </div>
-                                                                    <div className='w-full'>
-                                                                        <label>&nbsp;</label>
+                                                                    <div>
+                                                                        <label className='block mb-1'>&nbsp;</label>
                                                                         <input
                                                                             id='approximatelySymbol2'
                                                                             type='text'
                                                                             placeholder={''}
-                                                                            className={clsx('form-input bg-gray-50 text-gray-500 w-full rounded-none text-center', {})}
+                                                                            className='form-input bg-gray-50 text-gray-500 w-full rounded-none text-center'
                                                                             value={'≈'}
                                                                             autoComplete='off'
                                                                             disabled
-                                                                            onChange={e => {}}
+                                                                            onChange={e => { }}
                                                                         />
                                                                     </div>
-                                                                    <div className='w-full'>
-                                                                        <label htmlFor='' className='font-normal'>
+                                                                    <div>
+                                                                        <label htmlFor='' className='font-normal block mb-1'>
                                                                             ราคาโดยประมาณ (THB)
                                                                         </label>
                                                                         <input
                                                                             id='approximatelyPrice2'
                                                                             type='number'
                                                                             placeholder={''}
-                                                                            className={clsx('form-input bg-gray-50 text-gray-500 w-full rounded-l-none', {})}
+                                                                            className='form-input bg-gray-50 text-gray-500 w-full rounded-l-none'
                                                                             value={formState?.convertedAmount ?? 0}
                                                                             autoComplete='off'
                                                                             disabled
-                                                                            onChange={e => {}}
+                                                                            onChange={e => { }}
                                                                         />
                                                                     </div>
                                                                 </div>
@@ -750,7 +761,7 @@ const ServiceFormView: FC<Props> = props => {
                                                             <button
                                                                 type='button'
                                                                 className={`p-4 w-full flex items-center font-semibold ${formState.refill ? '!text-primary' : '!text-gray-600'}`}
-                                                                onClick={() => {}}
+                                                                onClick={() => { }}
                                                             >
                                                                 <div className='flex flex-row items-center gap-x-3 text-sm'>
                                                                     <label className='w-7 h-4 relative cursor-pointer'>
@@ -970,26 +981,24 @@ const ServiceFormView: FC<Props> = props => {
                                         </div>
                                     </div>
 
-                                    <div className='flex flex-col lg:flex-row items-center justify-center gap-4 py-4'>
+                                    {/* Apple-style Footer */}
+                                    <div className='flex items-center justify-end gap-3 px-6 py-4 border-t border-black/5 bg-gray-50/50'>
                                         <button
                                             type='button'
-                                            className='btn bg-gray-300 text-black text-center shadow hover:opacity-60 w-full lg:w-auto border-none'
-                                            onClick={() => {
-                                                onClose();
-                                            }}
+                                            className='px-5 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-xl transition-all'
+                                            onClick={onClose}
                                             disabled={isSubmitting}
                                         >
-                                            <IconXCircle className='w-4 text-black mr-2' />
-                                            <span>ยกเลิก</span>
+                                            ยกเลิก
                                         </button>
                                         <button
                                             type='button'
-                                            className='btn bg-meelike-dark text-white text-center shadow hover:!bg-gray-300 hover:!text-black w-full lg:w-auto'
+                                            className='px-6 py-2.5 bg-meelike-primary text-meelike-dark text-sm font-medium rounded-xl shadow-sm hover:bg-meelike-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2'
                                             onClick={onSubmit}
                                             disabled={isSubmitting}
                                         >
-                                            <IconSave className='w-4 mr-2' />
-                                            <span>บันทึก</span>
+                                            <IconSave className='w-4 h-4' />
+                                            บันทึก
                                         </button>
                                     </div>
                                 </DialogPanel>
