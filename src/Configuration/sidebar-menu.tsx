@@ -11,10 +11,18 @@ import IconChartSquare from '@/components/Icon/IconChartSquare';
 import IconMenuCharts from '@/components/Icon/Menu/IconMenuCharts';
 import IconBarChart from '@/components/Icon/IconBarChart';
 
+import IconHome from '@/components/Icon/IconHome';
+
 import { paths } from '@/router/paths';
 import IconPlusCircle from '@/components/Icon/IconPlusCircle';
 
 export const SidebarMenu: any[] = [
+    'แดชบอร์ด',
+    {
+        icon: <IconHome className='group-hover:!text-gray-600 shrink-0' />,
+        path: paths.dashboard,
+        title: 'ภาพรวม'
+    },
     'ออร์เดอร์',
     {
         icon: <IconMenuDocumentation className='group-hover:!text-gray-600 shrink-0' />,
@@ -66,6 +74,11 @@ export const SidebarMenu: any[] = [
         icon: <IconCoffee className='group-hover:!text-gray-600 shrink-0' />,
         path: paths.provider.list,
         title: 'ผู้ให้บริการ'
+    },
+    {
+        icon: <IconChartSquare className='group-hover:!text-gray-600 shrink-0' />,
+        path: paths.provider.changes,
+        title: 'การเปลี่ยนแปลง Provider'
     },
     'ตั๋ว',
     {

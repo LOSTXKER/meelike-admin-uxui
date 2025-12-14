@@ -31,6 +31,8 @@ import TicketReportView from '@/pages/Report/Ticket/View';
 import UserReportView from '@/pages/Report/User/View';
 import ServiceReportView from '@/pages/Report/Service/View';
 import ServiceCategoryReportView from '@/pages/Report/ServiceCategory/View';
+import DashboardView from '@/pages/Dashboard/View';
+import ProviderChangesView from '@/pages/Provider/Changes/View';
 
 const routes = [
     {
@@ -38,6 +40,14 @@ const routes = [
         element: (
             <ProtectedRoute>
                 <IndexView />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: paths.dashboard,
+        element: (
+            <ProtectedRoute>
+                <DashboardView />
             </ProtectedRoute>
         )
     },
@@ -69,6 +79,14 @@ const routes = [
         element: (
             <ProtectedRoute>
                 <ProviderManagementView />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: paths.provider.changes,
+        element: (
+            <ProtectedRoute>
+                <ProviderChangesView />
             </ProtectedRoute>
         )
     },

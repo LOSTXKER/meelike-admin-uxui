@@ -1,5 +1,6 @@
 export const paths = {
     root: '/',
+    dashboard: '/dashboard',
     auth: {
         signin: '/auth/signin',
         register: '/auth/register',
@@ -19,6 +20,7 @@ export const paths = {
     },
     provider: {
         list: '/provider',
+        changes: '/changes',
     },
     services: {
         list: '/services',
