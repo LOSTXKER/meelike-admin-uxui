@@ -72,6 +72,29 @@ const ViewModel = () => {
         );
     };
 
+    const moveServicesToCategory = (serviceIds: Set<string>, targetCategoryId: string) => {
+        setCategories(prev => {
+            // 1. Collect services to move
+            let servicesToMove: Service[] = [];
+
+            // Remove from old categories
+            const categoriesWithoutServices = prev.map(cat => {
+                const staying = cat.services.filter(s => !serviceIds.has(s.id));
+                const moving = cat.services.filter(s => serviceIds.has(s.id));
+                servicesToMove = [...servicesToMove, ...moving];
+                return { ...cat, services: staying };
+            });
+
+            // 2. Add to new category
+            return categoriesWithoutServices.map(cat => {
+                if (cat.id === targetCategoryId) {
+                    return { ...cat, services: [...cat.services, ...servicesToMove] };
+                }
+                return cat;
+            });
+        });
+    };
+
     // Filter categories based on search
     const filteredCategories = useMemo(() => {
         if (!searchQuery.trim()) return categories;
@@ -101,6 +124,7 @@ const ViewModel = () => {
         setCategories,
         toggleCategory,
         onReorderServices,
+        moveServicesToCategory,
         searchQuery,
         setSearchQuery
     };

@@ -54,49 +54,37 @@ export const ViewModel = () => {
     const { getTicketData } = useTicketStore();
 
     // Fetch table data from API
+    // Fetch table data from API (Mocked)
     const fetchTableData = async () => {
+        setLoading(true);
+        // Simulate API
+        await new Promise(resolve => setTimeout(resolve, 400));
+
         if (dateRange.length !== 2) {
             setTicketData([]);
+            setLoading(false);
             return;
         }
 
-        // Build parameters for table data
-        const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-        const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
-
-        // Map active button to API type
-        let type: string;
-        switch (activeButton) {
-            case 'new_tickets':
-                type = 'new_tickets';
-                break;
-            case 'user_messages':
-                type = 'user_messages';
-                break;
-            case 'admin_messages':
-                type = 'admin_messages';
-                break;
-            case 'answered_tickets':
-                type = 'answered_tickets';
-                break;
-            default:
-                type = 'new_tickets';
+        // Generate Mock Data
+        const mockData: TableDataItem[] = [];
+        for (let m = 1; m <= 12; m++) {
+            for (let d = 1; d <= 31; d++) {
+                // Random stats
+                mockData.push({
+                    day: d,
+                    month: m,
+                    totalQuantity: Math.floor(Math.random() * 20),
+                    userMessages: Math.floor(Math.random() * 100),
+                    staffMessages: Math.floor(Math.random() * 100),
+                    answeredTickets: Math.floor(Math.random() * 20)
+                });
+            }
         }
 
-        const params = {
-            type,
-            startDate,
-            endDate,
-            adminIds: selectedUsers.map((u) => u.value),
-        };
-
-        const result = await getTicketData(params);
-        if (result.success) {
-            const processedData = processTableData(result.data);
-            setTicketData(processedData);
-        } else {
-            console.error('Error fetching order data:', result);
-        }
+        const processedData = processTableData(mockData);
+        setTicketData(processedData);
+        setLoading(false);
     };
 
     // Process table data from API to match the table format
@@ -144,41 +132,32 @@ export const ViewModel = () => {
     };
 
     // Fetch users data for filter options
+    // Fetch users data for filter options (Mocked)
     const fetchUsersData = async () => {
-        const result = await getAllUser();
-        if (result.success) {
-            const options = result.data.map((user: any) => ({
-                value: user.id.toString(),
-                label: user.name,
-            }));
-            setUserOptions(options);
-        }
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock User ${i + 1}`,
+        }));
+        setUserOptions(options);
     };
 
-    // Fetch services data for filter options
+    // Fetch services data for filter options (Mocked)
     const fetchServicesData = async () => {
-        const result = await getAllService();
-        if (result.success) {
-            const options = result.data.map((service: any) => ({
-                value: service.id.toString(),
-                label: service.name,
-            }));
-            setServiceOptions(options);
-        }
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock Service ${i + 1}`,
+        }));
+        setServiceOptions(options);
     };
 
-    // Fetch order status data for filter options
+    // Fetch order status data for filter options (Mocked)
     const fetchOrderStatusData = async () => {
-        const result = await getOrderStatus();
-        if (result.success) {
-            const options = result.data.map((status: any) => ({
-                value: status.value || status.id?.toString() || status.code,
-                label: status.label || status.name || status.title,
-            }));
-            setOrderStatusOptions(options);
-            // Set default to empty array (no status selected)
-            setSelectedOrderStatus([]);
-        }
+        const options = [
+            { value: 'open', label: 'Open' },
+            { value: 'closed', label: 'Closed' }
+        ];
+        setOrderStatusOptions(options);
+        setSelectedOrderStatus([]);
     };
 
     useEffect(() => {

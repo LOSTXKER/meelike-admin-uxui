@@ -47,31 +47,34 @@ export const ViewModel = () => {
     const { getOrderStatus } = useMasterDataStore();
     const { getProfitData } = useOrderStore();
 
-    // Fetch table data from API
+    // Fetch table data from API (Mocked)
     const fetchTableData = async () => {
+        setLoading(true);
+        // Simulate API
+        await new Promise(resolve => setTimeout(resolve, 400));
+
         if (dateRange.length !== 2) {
             setProfitData([]);
+            setLoading(false);
             return;
         }
 
-        // Build parameters for table data
-        const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-        const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
-
-        const params = {
-            startDate,
-            endDate,
-            serviceIds: selectedServices.map((s) => s.value),
-            statuses: selectedOrderStatus.map((s) => s.value),
-        };
-
-        const result = await getProfitData(params);
-        if (result.success) {
-            const processedData = processTableData(result.data);
-            setProfitData(processedData);
-        } else {
-            console.error('Error fetching profit data:', result);
+        // Generate Mock Data
+        const mockData: TableDataItem[] = [];
+        for (let m = 1; m <= 12; m++) {
+            for (let d = 1; d <= 31; d++) {
+                // Random profit
+                mockData.push({
+                    day: d,
+                    month: m,
+                    profit: Number((Math.random() * 2000 - 500).toFixed(2)) // Allow some negative profit
+                });
+            }
         }
+
+        const processedData = processTableData(mockData);
+        setProfitData(processedData);
+        setLoading(false);
     };
 
     // Process table data from API to match the table format
@@ -105,42 +108,33 @@ export const ViewModel = () => {
         return processedData;
     };
 
-    // Fetch users data for filter options
+    // Fetch users data for filter options (Mocked)
     const fetchUsersData = async () => {
-        const result = await getAllData();
-        if (result.success) {
-            const options = result.data.map((user: any) => ({
-                value: user.id.toString(),
-                label: user.name,
-            }));
-            setUserOptions(options);
-        }
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock User ${i + 1}`,
+        }));
+        setUserOptions(options);
     };
 
-    // Fetch services data for filter options
+    // Fetch services data for filter options (Mocked)
     const fetchServicesData = async () => {
-        const result = await getAllService();
-        if (result.success) {
-            const options = result.data.map((service: any) => ({
-                value: service.id.toString(),
-                label: `${service.id} - ${service.name}`,
-            }));
-            setServiceOptions(options);
-        }
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock Service ${i + 1}`,
+        }));
+        setServiceOptions(options);
     };
 
-    // Fetch order status data for filter options
+    // Fetch order status data for filter options (Mocked)
     const fetchOrderStatusData = async () => {
-        const result = await getOrderStatus();
-        if (result.success) {
-            const options = result.data.map((status: any) => ({
-                value: status.value,
-                label: status.label || status.name || status.title,
-            }));
-            setOrderStatusOptions(options);
-            // Set default to empty array (no status selected)
-            setSelectedOrderStatus([]);
-        }
+        const options = [
+            { value: 'pending', label: 'Pending' },
+            { value: 'completed', label: 'Completed' },
+            { value: 'cancelled', label: 'Cancelled' }
+        ];
+        setOrderStatusOptions(options);
+        setSelectedOrderStatus([]);
     };
 
     useEffect(() => {

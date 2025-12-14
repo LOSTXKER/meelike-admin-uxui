@@ -57,6 +57,7 @@ const ServicesManagementView: FC = () => {
         setCategories,
         toggleCategory,
         onReorderServices,
+        moveServicesToCategory,
         searchQuery,
         setSearchQuery
     } = useViewModel();
@@ -112,6 +113,12 @@ const ServicesManagementView: FC = () => {
         platform: string;
         iconUrl: string;
     }>({ isOpen: false, categoryId: '', name: '', platform: '', iconUrl: '' });
+
+    // Assign Category Popup
+    const [assignCategoryPopup, setAssignCategoryPopup] = useState<{
+        isOpen: boolean;
+        targetCategoryId: string;
+    }>({ isOpen: false, targetCategoryId: '' });
 
     // Import Services Popup
     const [importServicesPopup, setImportServicesPopup] = useState<{ isOpen: boolean }>({ isOpen: false });
@@ -352,7 +359,13 @@ const ServicesManagementView: FC = () => {
                                                 Sort by
                                                 <ChevronDownIcon className='w-3 h-3 -rotate-90' />
                                             </button>
-                                            <button className='w-full px-4 py-2 text-left text-sm hover:bg-blue-500 hover:text-white transition-colors'>
+                                            <button
+                                                onClick={() => {
+                                                    setAssignCategoryPopup({ isOpen: true, targetCategoryId: '' });
+                                                    setOpenDropdown(null);
+                                                }}
+                                                className='w-full px-4 py-2 text-left text-sm hover:bg-blue-500 hover:text-white transition-colors'
+                                            >
                                                 Assign category
                                             </button>
                                             <button className='w-full px-4 py-2 text-left text-sm hover:bg-blue-500 hover:text-white transition-colors'>
@@ -726,7 +739,7 @@ const ServicesManagementView: FC = () => {
                                                     setList={(newServices) => onReorderServices(category.id, newServices)}
                                                     animation={200}
                                                     handle='.service-drag-handle'
-                                                    group='services'
+                                                    group={'services-' + category.id}
                                                 >
                                                     {filteredServices.map((service: Service) => (
                                                         <div
@@ -1345,7 +1358,72 @@ const ServicesManagementView: FC = () => {
                     </div>
                 </div>
             )}
-        </Fragment>
+
+
+            {/* Assign Category Popup */}
+            {
+                assignCategoryPopup.isOpen && (
+                    <div className='fixed inset-0 z-50 flex items-center justify-center'>
+                        {/* Backdrop */}
+                        <div
+                            className='absolute inset-0 bg-black/50 backdrop-blur-sm'
+                            onClick={() => setAssignCategoryPopup({ isOpen: false, targetCategoryId: '' })}
+                        />
+
+                        {/* Popup Content */}
+                        <div className='relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden'>
+                            {/* Header */}
+                            <div className='px-6 py-4 border-b border-black/5 bg-gray-50/50'>
+                                <h3 className='font-semibold text-gray-900'>ย้ายหมวดหมู่</h3>
+                                <p className='text-xs text-gray-500 mt-0.5'>ย้าย {selectedServices.size} บริการที่เลือกไปยังหมวดหมู่ใหม่</p>
+                            </div>
+
+                            {/* Content */}
+                            <div className='p-6'>
+                                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                                    เลือกหมวดหมู่ปลายทาง
+                                </label>
+                                <select
+                                    value={assignCategoryPopup.targetCategoryId}
+                                    onChange={(e) => setAssignCategoryPopup({ ...assignCategoryPopup, targetCategoryId: e.target.value })}
+                                    className='w-full px-4 py-2.5 border border-black/15 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 bg-white'
+                                >
+                                    <option value=''>-- เลือกหมวดหมู่ --</option>
+                                    {categories.map((cat: Category) => (
+                                        <option key={cat.id} value={cat.id}>
+                                            {cat.name} ({cat.platform})
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Footer */}
+                            <div className='px-6 py-4 border-t border-black/5 bg-gray-50/30 flex justify-end gap-3'>
+                                <button
+                                    onClick={() => setAssignCategoryPopup({ isOpen: false, targetCategoryId: '' })}
+                                    className='px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors'
+                                >
+                                    ยกเลิก
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        if (assignCategoryPopup.targetCategoryId) {
+                                            moveServicesToCategory(selectedServices, assignCategoryPopup.targetCategoryId);
+                                            setSelectedServices(new Set()); // Clear selection
+                                            setAssignCategoryPopup({ isOpen: false, targetCategoryId: '' });
+                                        }
+                                    }}
+                                    disabled={!assignCategoryPopup.targetCategoryId}
+                                    className='px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+                                >
+                                    ยืนยันการย้าย
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        </Fragment >
     );
 };
 

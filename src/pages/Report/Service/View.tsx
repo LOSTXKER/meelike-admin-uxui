@@ -7,6 +7,9 @@ import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import moment from 'moment';
 import { DataTable } from 'mantine-datatable';
+import ReportStatCard from '../../../components/Report/ReportStatCard';
+import ReportFilter from '../../../components/Report/ReportFilter';
+import { IconServer, IconActivity } from '@tabler/icons-react';
 
 const TIMEZONE = 'Asia/Bangkok';
 
@@ -35,141 +38,160 @@ const ServiceReportView: React.FC = () => {
 
     const filterDateRef = useRef<any>(null);
 
+    // Calc summary
+    const totalServices = serviceData.length;
+
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+            </div>
+        );
     }
 
     return (
-        <div className="page-content">
-            <div className="flex flex-row justify-between items-center mb-4 ">
-                <div className="flex flex-row gap-2 w-full w-max-4xl justify-end">
-                    <div className="w-full max-w-[300px]">
-                        <label className="form-label">ช่วงวันที่</label>
-                        <Flatpickr
-                            placeholder="เลือกช่วงเวลา"
-                            ref={filterDateRef}
-                            value={dateRange}
-                            options={{
-                                mode: 'range',
-                                dateFormat: 'F j, Y',
-                                position: 'auto left',
-                                maxDate: moment().tz(TIMEZONE).toDate(),
-                            }}
-                            className="form-input placeholder:text-gray-400 text-meelike-dark focus:border-meelike-primary cursor-pointer rounded-lg font-semibold"
-                            onChange={(date) => {
-                                if (date.length === 2) {
-                                    setDateRange(date);
-                                }
-                            }}
-                        />
-                    </div>
-                    <div className="w-full max-w-[200px] relative z-50">
-                        <label className="form-label">หมวดหมู่บริการ</label>
-                        <VirtualizedSelect<SelectOption, true>
-                            isMulti
-                            value={selectedCategories}
-                            onChange={(option: any) => {
-                                if (!Array.isArray(option)) {
-                                    setSelectedCategories((prevState: SelectOption[]) => [...prevState, option]);
-                                } else {
-                                    setSelectedCategories(option);
-                                }
-                            }}
-                            options={categoryOptions}
-                            className="react-select"
-                            classNamePrefix="select"
-                            placeholder="เลือกหมวดหมู่..."
-                            noOptionsMessage={() => 'ไม่พบข้อมูล'}
-                            menuPortalTarget={document.body}
-                            styles={{
-                                menuPortal: (base: any) => ({ ...base, zIndex: 9999 }),
-                            }}
-                        />
-                    </div>
-                    <div className="w-full max-w-[200px] relative z-50">
-                        <label className="form-label">ผู้ให้บริการ</label>
-                        <VirtualizedSelect<SelectOption, true>
-                            isMulti
-                            value={selectedProviders}
-                            onChange={(option: any) => {
-                                if (!Array.isArray(option)) {
-                                    setSelectedProviders((prevState: SelectOption[]) => [...prevState, option]);
-                                } else {
-                                    setSelectedProviders(option);
-                                }
-                            }}
-                            options={providerOptions}
-                            className="react-select"
-                            classNamePrefix="select"
-                            placeholder="เลือกผู้ให้บริการ..."
-                            noOptionsMessage={() => 'ไม่พบข้อมูล'}
-                            menuPortalTarget={document.body}
-                            styles={{
-                                menuPortal: (base: any) => ({ ...base, zIndex: 9999 }),
-                            }}
-                        />
-                    </div>
-                    <div className="w-full max-w-[200px] relative z-50">
-                        <label className="form-label">สถานะ</label>
-                        <VirtualizedSelect<SelectOption, false>
-                            value={selectedStatus[0] || null}
-                            onChange={(option: any) => {
-                                if (option) {
-                                    setSelectedStatus([option]);
-                                } else {
-                                    setSelectedStatus([]);
-                                }
-                            }}
-                            options={statusOptions}
-                            className="react-select"
-                            classNamePrefix="select"
-                            placeholder="เลือกสถานะ..."
-                            noOptionsMessage={() => 'ไม่พบข้อมูล'}
-                            menuPortalTarget={document.body}
-                            styles={{
-                                menuPortal: (base: any) => ({ ...base, zIndex: 9999 }),
-                            }}
-                        />
-                    </div>
-                </div>
+        <div className="page-content bg-gray-50 min-h-screen p-6">
+            <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-800">Service Report</h1>
+                <p className="text-gray-500 text-sm">Performance of services.</p>
             </div>
-            <Container fluid>
-                <Row>
-                    <Col lg={12}>
-                        <Card>
-                            <CardBody>
-                                <div className="relative datatables meelike-custom">
-                                    <DataTable
-                                        rowClassName=""
-                                        noRecordsText="ไม่พบข้อมูล"
-                                        highlightOnHover
-                                        className="whitespace-nowrap table-hover"
-                                        records={serviceData}
-                                        columns={columns}
-                                        // minHeight={200}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+
+            {/* Summary Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <ReportStatCard
+                    title="Total Services"
+                    value={totalServices.toLocaleString()}
+                    icon={<IconServer size={24} />}
+                    color="primary"
+                    className="h-full"
+                />
+                <ReportStatCard
+                    title="Active Services (Mock)"
+                    value={Math.floor(totalServices * 0.8).toLocaleString()}
+                    icon={<IconActivity size={24} />}
+                    color="success"
+                    className="h-full"
+                />
+            </div>
+
+            {/* Filters */}
+            <ReportFilter>
+                <div className="w-full md:w-auto min-w-[250px] flex-grow">
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">Date Range</label>
+                    <Flatpickr
+                        placeholder="Select Date Range"
+                        ref={filterDateRef}
+                        value={dateRange}
+                        options={{
+                            mode: 'range',
+                            dateFormat: 'F j, Y',
+                            position: 'auto left',
+                            maxDate: moment().tz(TIMEZONE).toDate(),
+                        }}
+                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        onChange={(date) => {
+                            if (date.length === 2) {
+                                setDateRange(date);
+                            }
+                        }}
+                    />
+                </div>
+
+                <div className="w-full md:w-auto min-w-[200px] flex-grow">
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">Category</label>
+                    <VirtualizedSelect<SelectOption, true>
+                        isMulti
+                        value={selectedCategories}
+                        onChange={(option: any) => setSelectedCategories(Array.isArray(option) ? option : [...selectedCategories, option])}
+                        options={categoryOptions}
+                        classNamePrefix="select"
+                        placeholder="Select Category..."
+                        styles={{ menuPortal: (base: any) => ({ ...base, zIndex: 9999 }) }}
+                        menuPortalTarget={document.body}
+                    />
+                </div>
+
+                <div className="w-full md:w-auto min-w-[200px] flex-grow">
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">Provider</label>
+                    <VirtualizedSelect<SelectOption, true>
+                        isMulti
+                        value={selectedProviders}
+                        onChange={(option: any) => setSelectedProviders(Array.isArray(option) ? option : [...selectedProviders, option])}
+                        options={providerOptions}
+                        classNamePrefix="select"
+                        placeholder="Select Provider..."
+                        styles={{ menuPortal: (base: any) => ({ ...base, zIndex: 9999 }) }}
+                        menuPortalTarget={document.body}
+                    />
+                </div>
+
+                <div className="w-full md:w-auto min-w-[200px] flex-grow">
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">Status</label>
+                    <VirtualizedSelect<SelectOption, false>
+                        value={selectedStatus[0] || null}
+                        onChange={(option: any) => setSelectedStatus(option ? [option] : [])}
+                        options={statusOptions}
+                        classNamePrefix="select"
+                        placeholder="Select Status..."
+                        styles={{ menuPortal: (base: any) => ({ ...base, zIndex: 9999 }) }}
+                        menuPortalTarget={document.body}
+                    />
+                </div>
+            </ReportFilter>
+
+            {/* Table */}
+            <Card className="border-none shadow-sm rounded-xl overflow-hidden">
+                <CardBody className="p-0">
+                    <div className="relative datatables meelike-custom">
+                        <DataTable
+                            rowClassName={(record) => {
+                                if (record.serviceName === 'TOTAL') {
+                                    return 'bg-gray-100 font-bold text-primary hover:bg-gray-100';
+                                }
+                                return '';
+                            }}
+                            noRecordsText="No records found"
+                            highlightOnHover
+                            className="table-modern"
+                            records={[
+                                ...serviceData,
+                                // Add Footer Row
+                                {
+                                    serviceId: '', // Blank ID
+                                    serviceName: 'TOTAL',
+                                    orderCount: serviceData.reduce((sum, item) => sum + (item.orderCount || 0), 0),
+                                    charge: serviceData.reduce((sum, item) => sum + (item.charge || 0), 0),
+                                    cost: serviceData.reduce((sum, item) => sum + (item.cost || 0), 0),
+                                    profit: serviceData.reduce((sum, item) => sum + (item.profit || 0), 0),
+                                    refunded: serviceData.reduce((sum, item) => sum + (item.refunded || 0), 0),
+                                }
+                            ] as any[]}
+                            columns={columns}
+                        />
+                    </div>
+                </CardBody>
+            </Card>
 
             <style>{`
-                /* Header */
-                .datatables.meelike-custom table thead tr {
-                    background-color: #FDE8BD !important;
-                    color: #473B30 !important;
+                 .table-modern thead tr th {
+                    background-color: #f9fafb !important;
+                    color: #6b7280 !important;
+                    font-weight: 600 !important;
+                    font-size: 0.875rem !important;
+                    padding-top: 1rem !important;
+                    padding-bottom: 1rem !important;
+                    border-bottom: 1px solid #e5e7eb !important;
                 }
-                .fast-option {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 1;
-                    -webkit-box-orient: vertical;
+                .table-modern tbody tr td {
+                    padding-top: 1rem !important;
+                    padding-bottom: 1rem !important;
+                    color: #374151 !important;
+                    font-size: 0.875rem !important;
+                    border-bottom: 1px solid #f3f4f6 !important;
                 }
-
+                .table-modern tbody tr:last-child td {
+                    border-bottom: none !important;
+                }
             `}</style>
         </div>
     );

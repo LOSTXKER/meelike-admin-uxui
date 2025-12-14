@@ -31,9 +31,9 @@ export const ViewModel = () => {
     const isFetchData = useRef<boolean>(false);
 
     // Fetch table data from API
+    // Fetch table data from API (Mocked)
     const fetchTableData = async () => {
         if (isFetchData.current) return;
-
         if (dateRange.length !== 2) {
             setUserData([]);
             return;
@@ -41,26 +41,22 @@ export const ViewModel = () => {
 
         isFetchData.current = true;
         setLoading(true);
+        // Simulate API
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         try {
-            // Build parameters for table data
-            const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-            const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
+            // Generate Mock User Data
+            const mockUsers: UserData[] = Array.from({ length: 20 }).map((_, index) => ({
+                userId: index + 1,
+                name: `User ${index + 1}`,
+                email: `user${index + 1}@example.com`,
+                totalOrders: Math.floor(Math.random() * 100),
+                totalSpent: Number((Math.random() * 5000).toFixed(2)),
+                profit: Number((Math.random() * 1000).toFixed(2)),
+                lastOrderDate: moment().subtract(Math.floor(Math.random() * 30), 'days').toISOString()
+            }));
 
-            const params = {
-                type: 'user_summary', // Default type for user report
-                startDate,
-                endDate,
-                sources: selectedSources.map((s) => s.value),
-            };
-
-            const result = await getUserData(params);
-            if (result.success) {
-                setUserData(result.data || []);
-            } else {
-                console.error('Error fetching user data:', result);
-                setUserData([]);
-            }
+            setUserData(mockUsers);
         } catch (error) {
             console.error('Error fetching user data:', error);
             setUserData([]);
@@ -70,24 +66,15 @@ export const ViewModel = () => {
         }
     };
 
-    // Initialize source options from master data
+    // Initialize source options from master data (Mocked)
     const initializeSourceOptions = async () => {
-        try {
-            const result = await getReportSources();
-            if (result.success) {
-                const options = result.data.map((source: any) => ({
-                    value: source.value || source.id?.toString() || source.code,
-                    label: source.label || source.name || source.title,
-                }));
-                setSourceOptions(options);
-            } else {
-                console.error('Error fetching report sources:', result);
-                setSourceOptions([]);
-            }
-        } catch (error) {
-            console.error('Error fetching report sources:', error);
-            setSourceOptions([]);
-        }
+        // Mock data
+        const options = [
+            { value: 'website', label: 'Website' },
+            { value: 'mobile', label: 'Mobile App' },
+            { value: 'api', label: 'API' }
+        ];
+        setSourceOptions(options);
     };
 
     useEffect(() => {
@@ -139,7 +126,7 @@ export const ViewModel = () => {
             title: 'Last order date',
 
             width: 200,
-            render: ({ lastOrderDate }: any) => <div className="text-left">{moment(lastOrderDate).format('DD/MM/YYYY HH:mm')}</div>,
+            render: ({ lastOrderDate }: any) => <div className="text-left">{lastOrderDate ? moment(lastOrderDate).format('DD/MM/YYYY HH:mm') : ''}</div>,
         },
     ];
 

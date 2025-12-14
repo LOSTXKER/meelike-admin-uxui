@@ -136,49 +136,36 @@ export const useOrderViewModel = () => {
     const { getOrderStatus } = useMasterDataStore();
     const { getOrderData } = useOrderStore();
 
-    // Fetch table data from API
+    // Fetch table data from API (Mocked)
     const fetchTableData = async () => {
+        setLoading(true);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 500));
+
         if (dateRange.length !== 2) {
             setOrderData([]);
+            setLoading(false);
             return;
         }
 
-        // Build parameters for table data
-        const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-        const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
-
-        // Map active button to API type
-        let type: string;
-        switch (activeButton) {
-            case 'amount':
-                type = 'total_orders';
-                break;
-            case 'charge':
-                type = 'total_charges';
-                break;
-            case 'quantity':
-                type = 'total_quantity';
-                break;
-            default:
-                type = 'total_orders';
+        // Generate Mock Data
+        const mockData: TableDataItem[] = [];
+        for (let m = 1; m <= 12; m++) {
+            for (let d = 1; d <= 31; d++) {
+                // Randomize data
+                mockData.push({
+                    day: d,
+                    month: m,
+                    totalOrders: Math.floor(Math.random() * 50),
+                    totalCharges: Number((Math.random() * 1000).toFixed(2)),
+                    totalQuantity: Math.floor(Math.random() * 100)
+                });
+            }
         }
 
-        const params = {
-            type,
-            startDate,
-            endDate,
-            serviceIds: selectedServices.map(s => s.value),
-            userIds: selectedUsers.map(u => parseInt(u.value)),
-            statuses: selectedOrderStatus.map(s => s.value)
-        };
-
-        const result = await getOrderData(params);
-        if (result.success) {
-            const processedData = processTableData(result.data);
-            setOrderData(processedData);
-        } else {
-            console.error('Error fetching order data:', result);
-        }
+        const processedData = processTableData(mockData);
+        setOrderData(processedData);
+        setLoading(false);
     };
 
     // Process table data from API to match the table format
@@ -223,42 +210,37 @@ export const useOrderViewModel = () => {
         return processedData;
     };
 
-    // Fetch users data for filter options
+    // Fetch users data for filter options (Mocked)
     const fetchUsersData = async () => {
-        const result = await getAllData();
-        if (result.success) {
-            const options = result.data.map((user: any) => ({
-                value: user.id.toString(),
-                label: user.name
-            }));
-            setUserOptions(options);
-        }
+        // Mock data
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock User ${i + 1}`
+        }));
+        setUserOptions(options);
     };
 
-    // Fetch services data for filter options
+    // Fetch services data for filter options (Mocked)
     const fetchServicesData = async () => {
-        const result = await getAllService();
-        if (result.success) {
-            const options = result.data.map((service: any) => ({
-                value: service.id.toString(),
-                label: `${service.id} - ${service.name}`
-            }));
-            setServiceOptions(options);
-        }
+        // Mock data
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock Service ${i + 1}`
+        }));
+        setServiceOptions(options);
     };
 
-    // Fetch order status data for filter options
+    // Fetch order status data for filter options (Mocked)
     const fetchOrderStatusData = async () => {
-        const result = await getOrderStatus();
-        if (result.success) {
-            const options = result.data.map((status: any) => ({
-                value: status.value || status.id?.toString() || status.code,
-                label: status.label || status.name || status.title
-            }));
-            setOrderStatusOptions(options);
-            // Set default to empty array (no status selected)
-            setSelectedOrderStatus([]);
-        }
+        // Mock data
+        const options = [
+            { value: 'pending', label: 'Pending' },
+            { value: 'completed', label: 'Completed' },
+            { value: 'cancelled', label: 'Cancelled' }
+        ];
+        setOrderStatusOptions(options);
+        // Set default to empty array (no status selected)
+        setSelectedOrderStatus([]);
     };
 
     useEffect(() => {

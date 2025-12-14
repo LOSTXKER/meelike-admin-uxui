@@ -46,20 +46,7 @@ const Sidebar = () => {
         }))
     );
 
-    const onlySuperAdmin = ['รายงาน', paths.report.order, paths.report.payment, paths.report.user, paths.report.profit, paths.report.ticket, paths.report.service];
-    const sidebarMenu = SidebarMenu.filter(item => {
-        if (typeof item === 'string') {
-            if (onlySuperAdmin.includes(item)) {
-                return role === 'SUPER_ADMIN';
-            } else {
-                return true;
-            }
-        } else if (onlySuperAdmin.includes(item.path)) {
-            return role === 'SUPER_ADMIN';
-        }
-
-        return true;
-    });
+    const sidebarMenu = SidebarMenu;
 
     const onSignOut = () => {
         signOut().then(response => {

@@ -19,6 +19,7 @@ export type ActiveButtonType = 'pnl' | 'order-amount';
 export const ViewModel = () => {
     const [loading, setLoading] = useState(true);
     const [activeButton, setActiveButton] = useState<ActiveButtonType>('pnl');
+    const [localData, setLocalData] = useState<any[]>([]); // Add local state for mock data
 
     // Filter options
 
@@ -40,35 +41,32 @@ export const ViewModel = () => {
     const isFetchData = useRef<boolean>(false);
 
     // Fetch table data from API
+    // Fetch table data from API (Mocked)
     const fetchTableData = async () => {
         if (isFetchData.current) return;
 
-        if (dateRange.length !== 2) {
-            return;
-        }
-
         isFetchData.current = true;
         setLoading(true);
+        // Simulate API
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         try {
-            // Build parameters for table data
-            const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-            const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
+            // Generate Mock Data
+            const mockCategories = Array.from({ length: 8 }).map((_, index) => {
+                const cost = Math.random() * 5000;
+                const revenue = cost * 1.5;
+                return {
+                    categoryId: index + 1,
+                    categoryName: `Category ${index + 1}`,
+                    costTHB: cost,
+                    revenueTHB: revenue,
+                    pnlTHB: revenue - cost,
+                    marginPct: 33.33,
+                    orderCount: Math.floor(Math.random() * 1000)
+                };
+            });
+            setLocalData(mockCategories);
 
-            const params = {
-                startDate,
-                endDate
-                // categoryIds: selectedCategories.map((s: { value: string; label: string }) => s.value),
-                // providerIds: selectedProviders.map((s: { value: string; label: string }) => s.value),
-                // isActive: selectedStatus.length > 0 ? selectedStatus[0]?.value === 'true' : true
-            };
-
-            let result: any = null;
-            if (activeButton === 'pnl') {
-                result = await getPnLData(params);
-            } else {
-                result = await getOrderAmountData(params);
-            }
         } catch (error) {
             console.error('Error fetching service data:', error);
         } finally {
@@ -151,7 +149,7 @@ export const ViewModel = () => {
     }, [dateRange, activeButton, selectedCategories, selectedProviders, selectedStatus]);
 
     return {
-        serviceData: activeButton === 'pnl' ? pnlData : orderAmountData,
+        serviceData: localData, // Use local mock data
         loading,
         columns: activeButton === 'pnl' ? pnlColumns : orderAmountColumns, // Adjust columns based on active button
         activeButton,

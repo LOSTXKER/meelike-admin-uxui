@@ -40,9 +40,9 @@ export const ViewModel = () => {
     const isFetchData = useRef<boolean>(false);
 
     // Fetch table data from API
+    // Fetch table data from API (Mocked)
     const fetchTableData = async () => {
         if (isFetchData.current) return;
-
         if (dateRange.length !== 2) {
             setServiceData([]);
             return;
@@ -50,27 +50,23 @@ export const ViewModel = () => {
 
         isFetchData.current = true;
         setLoading(true);
+        // Simulate API
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         try {
-            // Build parameters for table data
-            const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-            const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
+            // Generate Mock Service Data
+            const mockServices: ServiceData[] = Array.from({ length: 15 }).map((_, index) => ({
+                serviceId: index + 100,
+                externalServiceId: `EXT-${index + 100}`,
+                serviceName: `Service Mock ${index + 1}`,
+                orderCount: Math.floor(Math.random() * 500),
+                charge: Number((Math.random() * 1000).toFixed(2)),
+                cost: Number((Math.random() * 800).toFixed(2)),
+                profit: Number((Math.random() * 200).toFixed(2)),
+                refunded: Number((Math.random() * 50).toFixed(2))
+            }));
 
-            const params = {
-                startDate,
-                endDate,
-                categoryIds: selectedCategories.map((s: { value: string; label: string }) => s.value),
-                providerIds: selectedProviders.map((s: { value: string; label: string }) => s.value),
-                isActive: selectedStatus.length > 0 ? selectedStatus[0]?.value === 'true' : true,
-            };
-
-            const result = await getServiceData(params);
-            if (result.success) {
-                setServiceData(result.data || []);
-            } else {
-                console.error('Error fetching service data:', result);
-                setServiceData([]);
-            }
+            setServiceData(mockServices);
         } catch (error) {
             console.error('Error fetching service data:', error);
             setServiceData([]);
@@ -80,31 +76,19 @@ export const ViewModel = () => {
         }
     };
 
-    // Initialize filter options from master data
+    // Initialize filter options from master data (Mocked)
     const initializeFilterOptions = async () => {
-        try {
-            // Fetch service categories
-            const categoriesResult = await getServiceCategories();
-            if (categoriesResult.success) {
-                const categoryOpts = categoriesResult.data.map((category: any) => ({
-                    value: category.id?.toString(),
-                    label: category.name,
-                }));
-                setCategoryOptions(categoryOpts);
-            }
+        // Mock Categories
+        setCategoryOptions(Array.from({ length: 5 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock Category ${i + 1}`
+        })));
 
-            // Fetch providers
-            const providersResult = await getProviders();
-            if (providersResult.success) {
-                const providerOpts = providersResult.data.map((provider: any) => ({
-                    value: provider.id?.toString(),
-                    label: provider.name,
-                }));
-                setProviderOptions(providerOpts);
-            }
-        } catch (error) {
-            console.error('Error fetching filter options:', error);
-        }
+        // Mock Providers
+        setProviderOptions(Array.from({ length: 5 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock Provider ${i + 1}`
+        })));
     };
 
     useEffect(() => {

@@ -7,6 +7,9 @@ import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import moment from 'moment';
 import { DataTable } from 'mantine-datatable';
+import ReportStatCard from '../../../components/Report/ReportStatCard';
+import ReportFilter from '../../../components/Report/ReportFilter';
+import { IconChartBar, IconShoppingBag } from '@tabler/icons-react';
 
 const TIMEZONE = 'Asia/Bangkok';
 
@@ -20,84 +23,138 @@ const ServiceCategoryReportView: React.FC = () => {
 
     const filterDateRef = useRef<any>(null);
 
+    // Sum for metrics
+    const totalValue = React.useMemo(() => {
+        // Mock sum loop since we don't know exact column names for pnl vs orders without checking viewmodel/data types deep
+        // But for UI card value we can sum a 'value' if available or just count
+        return serviceData.length;
+    }, [serviceData]);
+
+
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+            </div>
+        );
     }
 
     return (
-        <div className='page-content'>
-            <div className='flex flex-row justify-between items-center mb-4 '>
-                <div className='flex flex-row gap-2 w-full w-max-4xl justify-end'>
-                    <div className='w-full flex items-end justify-between max-w-[575px] h-auto'>
-                        <div className={`btn ${activeButton === 'pnl' ? 'bg-gray-200' : 'bg-white'} shadow-none w-full h-10 rounded-r-none cursor-pointer`} onClick={() => setActiveButton('pnl')}>
-                            PnL
-                        </div>
-                        <div
-                            className={`btn ${activeButton === 'order-amount' ? 'bg-gray-200' : 'bg-white'} shadow-none w-full h-10 rounded-l-none cursor-pointer`}
-                            onClick={() => setActiveButton('order-amount')}
-                        >
-                            Total Orders
-                        </div>
-                    </div>
-                    <div className='w-full max-w-[300px]'>
-                        <label className='form-label'>ช่วงวันที่</label>
-                        <Flatpickr
-                            placeholder='เลือกช่วงเวลา'
-                            ref={filterDateRef}
-                            value={dateRange}
-                            options={{
-                                mode: 'range',
-                                dateFormat: 'F j, Y',
-                                position: 'auto left',
-                                maxDate: moment().tz(TIMEZONE).toDate()
-                            }}
-                            className='form-input placeholder:text-gray-400 text-meelike-dark focus:border-meelike-primary cursor-pointer rounded-lg font-semibold'
-                            onChange={date => {
-                                if (date.length === 2) {
-                                    setDateRange(date);
+        <div className='page-content bg-gray-50 min-h-screen p-6'>
+            <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-800">Service Category Report</h1>
+                <p className="text-gray-500 text-sm">Category performance analysis.</p>
+            </div>
+
+            {/* Summary Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <ReportStatCard
+                    title="PnL Report"
+                    value={activeButton === 'pnl' ? 'View' : '---'}
+                    icon={<IconChartBar size={24} />}
+                    color="primary"
+                    isActive={activeButton === 'pnl'}
+                    onClick={() => setActiveButton('pnl')}
+                    className="h-full"
+                />
+                <ReportStatCard
+                    title="Total Orders"
+                    value={activeButton === 'order-amount' ? 'View' : '---'}
+                    icon={<IconShoppingBag size={24} />}
+                    color="warning"
+                    isActive={activeButton === 'order-amount'}
+                    onClick={() => setActiveButton('order-amount')}
+                    className="h-full"
+                />
+            </div>
+
+            {/* Filters */}
+            <ReportFilter>
+                <div className='w-full max-w-[300px]'>
+                    <label className='text-sm font-medium text-gray-700 mb-1 block'>Date Range</label>
+                    <Flatpickr
+                        placeholder='Select Date Range'
+                        ref={filterDateRef}
+                        value={dateRange}
+                        options={{
+                            mode: 'range',
+                            dateFormat: 'F j, Y',
+                            position: 'auto left',
+                            maxDate: moment().tz(TIMEZONE).toDate()
+                        }}
+                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        onChange={date => {
+                            if (date.length === 2) {
+                                setDateRange(date);
+                            }
+                        }}
+                    />
+                </div>
+            </ReportFilter>
+
+            {/* Table */}
+            <Card className="border-none shadow-sm rounded-xl overflow-hidden">
+                <CardBody className="p-0">
+                    <div className='relative datatables meelike-custom'>
+                        <DataTable
+                            rowClassName={(record) => {
+                                if (record.categoryName === 'TOTAL') {
+                                    return 'bg-gray-100 font-bold text-primary hover:bg-gray-100';
                                 }
+                                return '';
                             }}
+                            noRecordsText='No records found'
+                            highlightOnHover
+                            className='table-modern'
+                            records={[
+                                ...serviceData,
+                                // Add Footer Row
+                                (() => {
+                                    const totalCost = serviceData.reduce((sum, item) => sum + (item.costTHB || 0), 0);
+                                    const totalRevenue = serviceData.reduce((sum, item) => sum + (item.revenueTHB || 0), 0);
+                                    const totalPnL = serviceData.reduce((sum, item) => sum + (item.pnlTHB || 0), 0);
+                                    const totalOrders = serviceData.reduce((sum, item) => sum + (item.orderCount || 0), 0);
+
+                                    // Calculate margin % for total: (Total PnL / Total Revenue) * 100
+                                    const totalMarginPct = totalRevenue !== 0 ? (totalPnL / totalRevenue) * 100 : 0;
+
+                                    return {
+                                        categoryId: '', // Blank ID
+                                        categoryName: 'TOTAL',
+                                        costTHB: totalCost,
+                                        revenueTHB: totalRevenue,
+                                        pnlTHB: totalPnL,
+                                        marginPct: totalMarginPct,
+                                        orderCount: totalOrders
+                                    };
+                                })()
+                            ] as any[]}
+                            columns={columns}
                         />
                     </div>
-                </div>
-            </div>
-            <Container fluid>
-                <Row>
-                    <Col lg={12}>
-                        <Card>
-                            <CardBody>
-                                <div className='relative datatables meelike-custom'>
-                                    <DataTable
-                                        rowClassName=''
-                                        noRecordsText='ไม่พบข้อมูล'
-                                        highlightOnHover
-                                        className='whitespace-nowrap table-hover'
-                                        records={serviceData}
-                                        columns={columns}
-                                        // minHeight={200}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+                </CardBody>
+            </Card>
 
             <style>{`
-                /* Header */
-                .datatables.meelike-custom table thead tr {
-                    background-color: #FDE8BD !important;
-                    color: #473B30 !important;
+                 .table-modern thead tr th {
+                    background-color: #f9fafb !important;
+                    color: #6b7280 !important;
+                    font-weight: 600 !important;
+                    font-size: 0.875rem !important;
+                    padding-top: 1rem !important;
+                    padding-bottom: 1rem !important;
+                    border-bottom: 1px solid #e5e7eb !important;
                 }
-                .fast-option {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 1;
-                    -webkit-box-orient: vertical;
+                .table-modern tbody tr td {
+                    padding-top: 1rem !important;
+                    padding-bottom: 1rem !important;
+                    color: #374151 !important;
+                    font-size: 0.875rem !important;
+                    border-bottom: 1px solid #f3f4f6 !important;
                 }
-
+                .table-modern tbody tr:last-child td {
+                    border-bottom: none !important;
+                }
             `}</style>
         </div>
     );

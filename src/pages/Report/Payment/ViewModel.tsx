@@ -69,13 +69,28 @@ export const useOrderViewModel = () => {
 
     const fetchChartData = async () => {
         if (dateRange.length === 2) {
-            const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-            const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
+            // Simulate API
+            await new Promise(resolve => setTimeout(resolve, 300));
 
-            const result = await getFundHistoryChartData(startDate, endDate);
-            if (result.success) {
-                setChartData(result.data);
+            const mockChartData: ChartDataItem[] = [];
+            const startDate = moment(dateRange[0]);
+            const endDate = moment(dateRange[1]);
+            const diffDays = endDate.diff(startDate, 'days');
+
+            const methods = ['Credit Card', 'PromptPay', 'TrueMoney'];
+
+            for (let i = 0; i <= diffDays; i++) {
+                const currentDate = moment(startDate).add(i, 'days').format('YYYY-MM-DD');
+                methods.forEach(method => {
+                    mockChartData.push({
+                        date: currentDate,
+                        method: method,
+                        totalAmount: Math.floor(Math.random() * 5000) + 100,
+                        count: Math.floor(Math.random() * 20) + 1
+                    });
+                });
             }
+            setChartData(mockChartData);
         }
     };
 
@@ -84,24 +99,31 @@ export const useOrderViewModel = () => {
             setPaymentData([]);
             return;
         }
-        // Build parameters for table data
-        const startDate = moment(dateRange[0]).format('YYYY-MM-DD');
-        const endDate = moment(dateRange[1]).format('YYYY-MM-DD');
-        const params = {
-            type: activeButton === 'amount' ? 'total_amount' : 'total_count',
-            startDate,
-            endDate,
-            methods: selectedServices.filter((s) => s.value !== 'all').map((s) => s.value),
-            userIds: selectedUsers.map((u: { value: string; label: string }) => parseInt(u.value)),
-        };
 
-        const result = await getTableData(params);
-        if (result.success) {
-            const processedData = processTableData(result.data);
-            setPaymentData(processedData);
-        } else {
-            console.log(result);
+        // Simulate API
+        await new Promise(resolve => setTimeout(resolve, 300));
+
+        // Generate Mock Table Data
+        const mockTableData: TableDataItem[] = [];
+        for (let m = 1; m <= 12; m++) {
+            for (let d = 1; d <= 31; d++) {
+                // Simulate some random data points
+                if (Math.random() > 0.3) {
+                    mockTableData.push({
+                        day: d,
+                        month: m,
+                        totalCount: Math.floor(Math.random() * 50),
+                        // Note: totalAmount is not explicitly in TableDataItem interface in the original file
+                        // but processTableData checks for it. We'll cast it to any or add it if interface allows.
+                        // Looking at processTableData: 'totalAmount' in item
+                        ...({ totalAmount: Number((Math.random() * 10000).toFixed(2)) } as any)
+                    });
+                }
+            }
         }
+
+        const processedData = processTableData(mockTableData);
+        setPaymentData(processedData);
     };
 
     // Process table data from API to match the table format
@@ -141,15 +163,14 @@ export const useOrderViewModel = () => {
     };
 
     // Fetch users data for filter options
+    // Fetch users data for filter options (Mocked)
     const fetchUsersData = async () => {
-        const result = await getAllData();
-        if (result.success) {
-            const options = result.data.map((user: any) => ({
-                value: user.id.toString(),
-                label: user.name,
-            }));
-            setUserOptions(options);
-        }
+        // Mock data
+        const options = Array.from({ length: 10 }).map((_, i) => ({
+            value: (i + 1).toString(),
+            label: `Mock User ${i + 1}`
+        }));
+        setUserOptions(options);
     };
 
     useEffect(() => {
